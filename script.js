@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const sections = document.querySelectorAll('section.hidden');
-
-    function revealSection() {
-        sections.forEach(section => {
-            if (section.getBoundingClientRect().top < window.innerHeight * 0.75) {
-                section.classList.add('show');
+    // --- Animation d'apparition au défilement (version optimisée) ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Si l'élément est visible dans le viewport
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
             }
         });
-    }
+    }, {
+        threshold: 0.15 // Déclenche l'animation quand 15% de la section est visible
+    });
 
-    window.addEventListener('scroll', revealSection);
-    revealSection(); // Pour afficher les sections initialement visibles
+    // On demande à l'observateur de surveiller toutes les sections cachées
+    const hiddenElements = document.querySelectorAll('section.hidden');
+    hiddenElements.forEach(el => observer.observe(el));
 
     // Effet de lumière qui suit la souris
     document.addEventListener('mousemove', e => {
@@ -42,26 +45,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Logique pour la Mini Analyse de Données (Graphique) ---
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar', // Type de graphique
-        data: {
-            labels: ['Python', 'HTML/CSS', 'JS', 'Git', 'Data Sci.', 'Linux'],
-            datasets: [{
-                label: 'Niveau de maîtrise (auto-évalué)',
-                data: [8, 7, 5, 7, 6, 8], // Données d'exemple
-                backgroundColor: 'rgba(46, 204, 113, 0.6)',
-                borderColor: 'rgba(46, 204, 113, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
+    let chartHasBeenCreated = false;
+    const chartCanvas = document.getElementById('myChart');
+
+    function createChart() {
+        if (chartHasBeenCreated) return; // Empêche la recréation du graphique
+
+        const ctx = chartCanvas.getContext('2d');
+        new Chart(ctx, {
+            type: 'bar', // Type de graphique
+            data: {
+                labels: ['Python', 'HTML/CSS', 'JS', 'Git', 'Data Sci.', 'Linux'],
+                datasets: [{
+                    label: 'Niveau de maîtrise (auto-évalué)',
+                    data: [8, 7, 5, 7, 6, 8], // Données d'exemple
+                    backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                    borderColor: 'rgba(46, 204, 113, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                animation: {
+                    duration: 1000, // Durée de l'animation en ms
+                    easing: 'easeOutQuad' // Effet de ralentissement à la fin
+                }
             }
-        }
-    });
+        });
+        chartHasBeenCreated = true;
+    }
+
+    // On observe le canvas du graphique pour déclencher sa création
+    observer.observe(chartCanvas);
+    // On ajoute la logique de création dans l'observateur existant
+    chartCanvas.addEventListener('animation-triggered', createChart, { once: true });
 
     // --- Logique pour la Régression Linéaire ---
     const regressionInput = document.getElementById('regression-input');
@@ -88,4 +108,42 @@ document.addEventListener('DOMContentLoaded', function() {
         regressionResult.textContent = `Prédiction du prix : ${Math.round(prediction).toLocaleString('fr-FR')} €`;
         regressionResult.style.color = '#2ecc71'; // Vert
     });
+
+    // --- Logique pour le sélecteur de thème ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Appliquer le thème sauvegardé au chargement de la page
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+        themeToggle.textContent = '☀️';
+    } else {
+        // Assurons-nous que l'icône est correcte au chargement pour le thème sombre
+        themeToggle.textContent = '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+
+        if (body.classList.contains('light-theme')) {
+            themeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'light'); // Sauvegarde le choix
+        } else {
+            themeToggle.textContent = '🌙';
+            localStorage.removeItem('theme'); // Le thème sombre est par défaut
+        }
+    });
+
+    // --- Logique pour l'animation du graphique ---
+    // Nous modifions l'observateur pour qu'il puisse déclencher la création du graphique
+    const chartObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.dispatchEvent(new CustomEvent('animation-triggered'));
+                observer.unobserve(entry.target); // On arrête d'observer une fois l'animation lancée
+            }
+        });
+    }, { threshold: 0.5 }); // Déclenche quand 50% du graphique est visible
+    chartObserver.observe(chartCanvas);
 });

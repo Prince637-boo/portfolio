@@ -1,31 +1,59 @@
+:root {
+    /* Thème sombre par défaut */
+    --bg-gradient: linear-gradient(to bottom right, #1c1c1c, #2c3e50);
+    --bg-light-effect: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.15), transparent 80%);
+    --text-primary: #e0e0e0;
+    --text-title: #ffffff;
+    --bg-section: rgba(40, 44, 52, 0.8);
+    --border-section: #3a3f4b;
+    --bg-card: #3a3f4b;
+    --bg-card-hover: #4a505c;
+    --accent-primary: #2ecc71;
+    --accent-hover: #88e6b3;
+    --text-on-accent: #1c1c1c;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-hover-color: rgba(46, 204, 113, 0.2);
+}
+
+.light-theme {
+    /* Thème clair */
+    --bg-gradient: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
+    --bg-light-effect: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.1), transparent 80%);
+    --text-primary: #333333;
+    --text-title: #1c1c1c;
+    --bg-section: rgba(255, 255, 255, 0.8);
+    --border-section: #cccccc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f9f9f9;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-hover-color: rgba(46, 204, 113, 0.15);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    /* On combine deux arrières-plans :
-       1. L'effet de lumière radial qui suivra la souris.
-       2. Le dégradé sombre de base.
-    */
-    background: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.15), transparent 80%), linear-gradient(to bottom right, #1c1c1c, #2c3e50);
-    color: #e0e0e0;
-    /* Texte principal plus clair */
+    background: var(--bg-light-effect), var(--bg-gradient);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 header {
     background-color: transparent;
     /* On rend le header transparent pour voir le dégradé */
-    color: white;
+    color: var(--text-title);
     padding: 20px 0;
-    border-bottom: 4px solid #2ecc71;
+    border-bottom: 4px solid var(--accent-primary);
     /* Une couleur d'accentuation verte plus moderne */
     text-align: center;
+    position: relative;
 }
 
 header h1 {
     font-size: 2.5em;
     margin-bottom: 5px;
-    color: #ffffff;
+    color: var(--text-title);
     /* Titre principal en blanc pur */
 }
 
@@ -36,7 +64,7 @@ header p {
 
 h1,
 h2 {
-    color: #ffffff;
+    color: var(--text-title);
     /* Tous les titres de section en blanc */
     margin-bottom: 10px;
 }
@@ -72,36 +100,53 @@ section {
     padding: 20px;
     margin: 10px auto;
     max-width: 800px;
-    background-color: rgba(40, 44, 52, 0.8);
+    background-color: var(--bg-section);
     /* Fond de section sombre et semi-transparent */
-    border: 1px solid #3a3f4b;
+    border: 1px solid var(--border-section);
     /* Bordure subtile pour délimiter */
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(5px);
     /* Effet de verre dépoli pour les navigateurs compatibles */
 }
 
 .hidden {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
+    transform: translateY(30px);
+    /* On augmente légèrement la translation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Transitions plus douces */
 }
 
-ul {
+
+/* Style pour la liste des compétences */
+
+.skills-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     padding: 0;
     margin: 0;
-    list-style-type: square;
+    list-style-type: none;
+    /* On retire les puces car on a des icônes */
+}
+
+
+/* Style pour les listes simples (comme dans la section projets) */
+
+#projects ul {
+    list-style-type: disc;
+    /* On garde les puces pour cette liste */
     padding-left: 20px;
+    /* Indentation standard */
+    margin-bottom: 20px;
+    /* Espace avant la grille des projets */
 }
 
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #1c1c1c;
+    background-color: var(--bg-card);
     /* Footer sombre et uni */
     color: white;
     margin-top: 40px;
@@ -112,8 +157,8 @@ footer p {
     opacity: 0.8;
 }
 
-ul li {
-    background-color: #3a3f4b;
+.skills-list li {
+    background-color: var(--bg-card);
     /* Fond pour chaque compétence */
     padding: 10px 15px;
     border-radius: 5px;
@@ -124,21 +169,21 @@ ul li {
     overflow: hidden;
 }
 
-ul li:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.skills-list li:hover {
+    box-shadow: 0 6px 12px var(--shadow-color);
     transform: translateY(-3px);
-    background-color: #4a505c;
+    background-color: var(--bg-card-hover);
     z_index: 1;
 }
 
-ul li:hover::before {
+.skills-list li:hover::before {
     transform: scaleX(1);
     /* Effet de lumière */
     opacity: 0.8;
     /* Léger changement de couleur au survol */
 }
 
-ul li img {
+.skills-list li img {
     width: 24px;
     /* Taille des logos légèrement augmentée */
     height: 24px;
@@ -154,7 +199,7 @@ ul li img {
 
 /* Style pour l'effet de lumière au survol */
 
-ul li::before {
+.skills-list li::before {
     content: "";
     position: absolute;
     top: 0;
@@ -172,12 +217,12 @@ ul li::before {
 
 /* Style pour l'effet de zoom sur l'image */
 
-ul li img {
+.skills-list li img {
     /* La transition est déjà sur ul li img, mais on s'assure qu'elle est là */
     transition: transform 0.3s ease;
 }
 
-ul li:hover img {
+.skills-list li:hover img {
     transform: scale(1.2);
     /* Zoom sur l'image au survol */
 }
@@ -186,14 +231,14 @@ ul li:hover img {
 /* Style pour les liens */
 
 a {
-    color: #2ecc71;
+    color: var(--accent-primary);
     /* Couleur d'accentuation pour les liens */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #88e6b3;
+    color: var(--accent-hover);
     /* Couleur plus claire au survol */
 }
 
@@ -207,11 +252,11 @@ a:hover {
 }
 
 .project-card {
-    background-color: #3a3f4b;
+    background-color: var(--bg-card);
     border-radius: 8px;
     overflow: hidden;
     /* Pour que l'image ne dépasse pas les coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -219,7 +264,7 @@ a:hover {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(46, 204, 113, 0.2);
+    box-shadow: 0 8px 16px var(--shadow-hover-color);
 }
 
 .project-card img {
@@ -232,7 +277,7 @@ a:hover {
 .project-card h3 {
     padding: 15px 15px 5px 15px;
     margin: 0;
-    color: #2ecc71;
+    color: var(--accent-primary);
     /* Couleur d'accentuation pour le titre du projet */
 }
 
@@ -250,18 +295,18 @@ a:hover {
 }
 
 .project-links a {
-    background-color: #2ecc71;
-    color: #1c1c1c;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .project-links a:hover {
-    background-color: #88e6b3;
-    color: #1c1c1c;
+    background-color: var(--accent-hover);
+    color: var(--text-on-accent);
 }
 
 
@@ -288,8 +333,8 @@ a:hover {
     margin-bottom: 10px;
     border-radius: 4px;
     border: 1px solid #555;
-    background-color: #2c3e50;
-    color: #e0e0e0;
+    background-color: var(--bg-card-hover);
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -299,7 +344,7 @@ a:hover {
 @media (max-width: 768px) {
     body {
         /* Désactive l'effet de lumière qui ne fonctionne pas sur mobile */
-        background: linear-gradient(to bottom right, #1c1c1c, #2c3e50);
+        background: var(--bg-gradient);
     }
     header h1 {
         font-size: 2em;
@@ -309,8 +354,11 @@ a:hover {
         font-size: 1em;
     }
     section {
-        padding: 15px;
-        margin: 10px;
+        /* On s'assure que la section prend toute la largeur disponible */
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 15px 20px;
+        /* Un peu plus de padding sur les côtés */
         /* Un peu de marge sur les côtés au lieu de centrer */
     }
     #about .container {
@@ -323,6 +371,10 @@ a:hover {
         margin-bottom: 20px;
         /* Espace entre l'image et le texte */
     }
+    .skills-list {
+        /* Sur mobile, on peut réduire la largeur minimale pour un meilleur ajustement */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
     .projects-grid {
         /* Sur mobile, une seule colonne est souvent préférable */
         grid-template-columns: 1fr;
@@ -333,15 +385,15 @@ a:hover {
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
-    background-color: #2ecc71;
-    color: #1c1c1c;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #palindrome-button:hover {
-    background-color: #88e6b3;
+    background-color: var(--accent-hover);
 }
 
 #palindrome-result {
@@ -369,7 +421,25 @@ a:hover {
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #555;
-    background-color: #2c3e50;
-    color: #e0e0e0;
+    background-color: var(--bg-card-hover);
+    color: var(--text-primary);
     text-align: center;
+}
+
+
+/* --- Style du bouton de thème --- */
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-section);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
 }
