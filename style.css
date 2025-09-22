@@ -3,23 +3,30 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    /* Couleur de fond plus douce */
-    color: #333;
+    /* On combine deux arrières-plans :
+       1. L'effet de lumière radial qui suivra la souris.
+       2. Le dégradé sombre de base.
+    */
+    background: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.15), transparent 80%), linear-gradient(to bottom right, #1c1c1c, #2c3e50);
+    color: #e0e0e0;
+    /* Texte principal plus clair */
 }
 
 header {
-    background-color: #009933;
+    background-color: transparent;
+    /* On rend le header transparent pour voir le dégradé */
     color: white;
     padding: 20px 0;
-    border-bottom: 5px solid #66b266;
-    /* Ajout d'une bordure en bas */
+    border-bottom: 4px solid #2ecc71;
+    /* Une couleur d'accentuation verte plus moderne */
     text-align: center;
 }
 
 header h1 {
     font-size: 2.5em;
     margin-bottom: 5px;
+    color: #ffffff;
+    /* Titre principal en blanc pur */
 }
 
 header p {
@@ -29,6 +36,8 @@ header p {
 
 h1,
 h2 {
+    color: #ffffff;
+    /* Tous les titres de section en blanc */
     margin-bottom: 10px;
 }
 
@@ -63,10 +72,14 @@ section {
     padding: 20px;
     margin: 10px auto;
     max-width: 800px;
-    background-color: #fff;
-    /* Blanc plus propre */
+    background-color: rgba(40, 44, 52, 0.8);
+    /* Fond de section sombre et semi-transparent */
+    border: 1px solid #3a3f4b;
+    /* Bordure subtile pour délimiter */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    /* Effet de verre dépoli pour les navigateurs compatibles */
 }
 
 .hidden {
@@ -87,10 +100,11 @@ ul {
 
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: #009933;
+    padding: 15px;
+    background-color: #1c1c1c;
+    /* Footer sombre et uni */
     color: white;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 footer p {
@@ -99,17 +113,21 @@ footer p {
 }
 
 ul li {
+    background-color: #3a3f4b;
+    /* Fond pour chaque compétence */
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 ul li:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-3px);
-    /* Légère élévation au survol */
-    background-color: #ccffcc;
-    /* Vert plus clair au survol */
+    background-color: #4a505c;
     z_index: 1;
 }
 
@@ -121,8 +139,11 @@ ul li:hover::before {
 }
 
 ul li img {
-    width: 20px;
-    /* Ajustez selon vos besoins */
+    width: 24px;
+    /* Taille des logos légèrement augmentée */
+    height: 24px;
+    margin-right: 12px;
+    /* Espace entre le logo et le texte */
 }
 
 .show {
@@ -140,7 +161,7 @@ ul li::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.05) 100%);
     transform: scaleX(0);
     /* Initialement caché */
     transform_origin: left;
@@ -152,10 +173,26 @@ ul li::before {
 /* Style pour l'effet de zoom sur l'image */
 
 ul li img {
+    /* La transition est déjà sur ul li img, mais on s'assure qu'elle est là */
     transition: transform 0.3s ease;
 }
 
 ul li:hover img {
     transform: scale(1.2);
     /* Zoom sur l'image au survol */
+}
+
+
+/* Style pour les liens */
+
+a {
+    color: #2ecc71;
+    /* Couleur d'accentuation pour les liens */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #88e6b3;
+    /* Couleur plus claire au survol */
 }
