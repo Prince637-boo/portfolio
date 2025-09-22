@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Animation d'apparition au défilement (version optimisée) ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Si l'élément est visible dans le viewport
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
+    // --- Effet machine à écrire pour le sous-titre ---
+    const subtitleElement = document.getElementById('typing-subtitle');
+    if (subtitleElement) {
+        const fullText = subtitleElement.textContent;
+        subtitleElement.textContent = ''; // On vide le texte pour l'animation
+
+        function typeWriter(element, text, i = 0) {
+            // Ajoute un caractère
+            element.textContent += text.charAt(i);
+            // Si le texte n'est pas fini, on continue
+            if (i < text.length - 1) {
+                setTimeout(() => typeWriter(element, text, i + 1), 50); // Vitesse de frappe (en ms)
             }
-        });
-    }, {
-        threshold: 0.15 // Déclenche l'animation quand 15% de la section est visible
-    });
-
-    // On demande à l'observateur de surveiller toutes les sections cachées
-    const hiddenElements = document.querySelectorAll('section.hidden');
-    hiddenElements.forEach(el => observer.observe(el));
-
+        }
+        // Démarrer l'effet
+        typeWriter(subtitleElement, fullText);
+    }
     // Effet de lumière qui suit la souris
     document.addEventListener('mousemove', e => {
         document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -78,11 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         chartHasBeenCreated = true;
     }
 
-    // On observe le canvas du graphique pour déclencher sa création
-    observer.observe(chartCanvas);
-    // On ajoute la logique de création dans l'observateur existant
-    chartCanvas.addEventListener('animation-triggered', createChart, { once: true });
-
     // --- Logique pour la Régression Linéaire ---
     const regressionInput = document.getElementById('regression-input');
     const regressionButton = document.getElementById('regression-button');
@@ -114,13 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyTheme(theme) {
         if (theme === 'light') {
-            document.documentElement.classList.remove('dark-theme');
             document.documentElement.classList.add('light-theme');
             themeToggle.textContent = '☀️';
             localStorage.setItem('theme', 'light');
         } else { // 'dark'
             document.documentElement.classList.remove('light-theme');
-            document.documentElement.classList.add('dark-theme');
             themeToggle.textContent = '🌙';
             localStorage.setItem('theme', 'dark');
         }
@@ -132,10 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (savedTheme) {
         applyTheme(savedTheme);
-    } else if (prefersDark) {
-        applyTheme('dark');
     } else {
-        applyTheme('light');
+        // Si aucun thème n'est sauvegardé, on se base sur la préférence système
+        if (prefersDark) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
     }
 
     themeToggle.addEventListener('click', () => {
@@ -148,15 +145,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- Logique pour l'animation du graphique ---
-    // Nous modifions l'observateur pour qu'il puisse déclencher la création du graphique
-    const chartObserver = new IntersectionObserver((entries, observer) => {
+    // --- Logique unifiée pour les animations au défilement ---
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.dispatchEvent(new CustomEvent('animation-triggered'));
+                // Si l'élément est le canvas du graphique, on crée le graphique
+                if (entry.target.id === 'myChart') {
+                    createChart();
+                } else {
+                    // Sinon, c'est une section, on ajoute la classe 'show'
+                    entry.target.classList.add('show');
+                }
+                // On arrête d'observer l'élément une fois qu'il est visible
                 observer.unobserve(entry.target); // On arrête d'observer une fois l'animation lancée
             }
         });
-    }, { threshold: 0.5 }); // Déclenche quand 50% du graphique est visible
-    chartObserver.observe(chartCanvas);
+    }, { threshold: 0.15 });
+
+    // On observe toutes les sections cachées ET le canvas du graphique
+    document.querySelectorAll('section.hidden, #myChart').forEach(el => {
+        scrollObserver.observe(el);
+    });
 });

@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - TCHAGODOMOU ISSA Prince</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Ajout de la bibliothèque Chart.js pour le graphique -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -54,9 +52,10 @@
             <div class="project-card">
                 <h3>Palindrome Checker</h3>
                 <div class="interactive-project" id="palindrome-container">
-                    <input type="text" id="palindrome-input" placeholder="Entrez un mot...">
+                    <label for="palindrome-input" class="sr-only">Vérificateur de palindrome</label>
+                    <input type="text" id="palindrome-input" placeholder="Entrez un mot ou une phrase...">
                     <button id="palindrome-button">Vérifier</button>
-                    <p id="palindrome-result">Le résultat s'affichera ici.</p>
+                    <p id="palindrome-result" aria-live="polite">Le résultat s'affichera ici.</p>
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/Prince673-boo/palindrome-checker" target="_blank">Voir le code</a>
@@ -81,7 +80,7 @@
                     <label for="regression-input">Entrez une valeur (ex: surface en m²):</label>
                     <input type="number" id="regression-input" placeholder="Ex: 120">
                     <button id="regression-button">Prédire le prix</button>
-                    <p id="regression-result">La prédiction s'affichera ici.</p>
+                    <p id="regression-result" aria-live="polite">La prédiction s'affichera ici.</p>
                 </div>
                 <div class="project-links">
                     <!-- Mettez ici le lien vers votre projet de régression sur GitHub -->
@@ -101,6 +100,8 @@
     <footer>
         <p>&copy; 2025 TCHAGODOMOU ISSA Prince</p>
     </footer>
+    <!-- On déplace les scripts ici pour ne pas bloquer l'affichage de la page -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 
