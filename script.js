@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Logique pour le sélecteur de thème ---
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
 
     function applyTheme(theme) {
         if (theme === 'light') {
@@ -141,11 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     themeToggle.addEventListener('click', () => {
         // Si le thème actuel (ou par défaut) est sombre, on passe au clair
-        const isCurrentlyDark = document.documentElement.classList.contains('dark-theme') || (!document.documentElement.classList.contains('light-theme') && prefersDark);
-        if (isCurrentlyDark) {
-            applyTheme('light');
-        } else {
+        const isLight = document.documentElement.classList.contains('light-theme');
+        if (isLight) {
             applyTheme('dark');
+        } else {
+            applyTheme('light');
         }
     });
 

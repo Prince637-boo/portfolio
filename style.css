@@ -15,7 +15,7 @@
     --shadow-hover-color: rgba(46, 204, 113, 0.2);
 }
 
-.light-theme {
+:root.light-theme {
     /* Thème clair */
     --bg-gradient: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
     --bg-light-effect: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.1), transparent 80%);
@@ -450,7 +450,7 @@ a:hover {
 @media (prefers-color-scheme: light) {
     /* Applique le thème clair si le système est en mode clair ET qu'aucun thème n'est forcé par l'utilisateur */
      :root:not(.dark-theme) {
-        /* Thème clair */
+        /* Applique les variables du thème clair définies dans .light-theme */
         --bg-gradient: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
         --bg-light-effect: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.1), transparent 80%);
         --text-primary: #333333;
