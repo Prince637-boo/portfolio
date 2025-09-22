@@ -148,7 +148,7 @@ footer {
     padding: 15px;
     background-color: var(--bg-card);
     /* Footer sombre et uni */
-    color: white;
+    color: var(--text-primary);
     margin-top: 40px;
 }
 
@@ -442,4 +442,24 @@ a:hover {
     font-size: 20px;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* Détection automatique du thème du système */
+
+@media (prefers-color-scheme: light) {
+    /* Applique le thème clair si le système est en mode clair ET qu'aucun thème n'est forcé par l'utilisateur */
+     :root:not(.dark-theme) {
+        /* Thème clair */
+        --bg-gradient: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
+        --bg-light-effect: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.1), transparent 80%);
+        --text-primary: #333333;
+        --text-title: #1c1c1c;
+        --bg-section: rgba(255, 255, 255, 0.8);
+        --border-section: #cccccc;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f9f9f9;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --shadow-hover-color: rgba(46, 204, 113, 0.15);
+    }
 }

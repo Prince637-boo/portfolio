@@ -113,25 +113,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Appliquer le thème sauvegardé au chargement de la page
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.classList.remove('dark-theme');
+            document.documentElement.classList.add('light-theme');
+            themeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'light');
+        } else { // 'dark'
+            document.documentElement.classList.remove('light-theme');
+            document.documentElement.classList.add('dark-theme');
+            themeToggle.textContent = '🌙';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Logique au chargement de la page
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-theme');
-        themeToggle.textContent = '☀️';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDark) {
+        applyTheme('dark');
     } else {
-        // Assurons-nous que l'icône est correcte au chargement pour le thème sombre
-        themeToggle.textContent = '🌙';
+        applyTheme('light');
     }
 
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-theme');
-
-        if (body.classList.contains('light-theme')) {
-            themeToggle.textContent = '☀️';
-            localStorage.setItem('theme', 'light'); // Sauvegarde le choix
+        // Si le thème actuel (ou par défaut) est sombre, on passe au clair
+        const isCurrentlyDark = document.documentElement.classList.contains('dark-theme') || (!document.documentElement.classList.contains('light-theme') && prefersDark);
+        if (isCurrentlyDark) {
+            applyTheme('light');
         } else {
-            themeToggle.textContent = '🌙';
-            localStorage.removeItem('theme'); // Le thème sombre est par défaut
+            applyTheme('dark');
         }
     });
 
