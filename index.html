@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - TCHAGODOMOU ISSA Prince</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Ajout de la bibliothèque Chart.js pour le graphique -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <header>
         <h1>TCHAGODOMOU ISSA Prince</h1>
-        <p>Étudiant en cycle préparatoire à l'ESAT-Togo | Futur ingénieur en IA</p>
+        <p id="typing-subtitle">Étudiant en cycle préparatoire à l'ESAT-Togo | Futur ingénieur en IA</p>
     </header>
 
     <section id="about">
         <div class="container">
             <div class="profile-image">
-                <img src="images/profile.jpg" alt="ma photo de profil">
+                <img src="image/ai_images.png" alt="ma photo de profil">
             </div>
             <div class="profile-content">
                 <h2>À propos de moi</h2>
@@ -29,14 +31,14 @@
     <section id="skills">
         <h2>Compétences</h2>
         <ul>
-            <li><img src="images/python.png" alt="Python logo"> Python, HTML, CSS</li>
-            <li><img src="images/git.png" alt="Git logo"> Git / GitHub</li>
+            <li><img src="image/python.webp" alt="Python logo"> Python, HTML, CSS</li>
+            <li><img src="image/git.png" alt="Git logo"> Git / GitHub</li>
             <li>
-                <img src="images/data_science.png" alt="Data Science logo"> Data Science
+                <img src="image/science.png" alt="Data Science logo"> Data Science
             </li>
-            <li><img src="images/machine_learning.png" alt="Machine Learning logo"> Machine Learning</li>
-            <li><img src="images/linux.png" alt="Linux logo"> Linux, VS Code</li>
-            <li><img src="images/soft_skills.png" alt="Soft Skills logo"> Rigueur, curiosité, esprit d'analyse</li>
+            <li><img src="image/learning.jpg" alt="Machine Learning logo"> Machine Learning</li>
+            <li><img src="image/linux.png" alt="Linux logo"> Linux, VS Code</li>
+            <li><img src="image/soft.png" alt="Soft Skills logo"> Rigueur, curiosité, esprit d'analyse</li>
         </ul>
     </section>
 
@@ -46,12 +48,53 @@
             <li><strong>Palindrome Checker</strong> : Programme en Python qui vérifie si un mot est un palindrome</li>
             <li><strong>Mini analyse de données</strong> : Projet d’introduction à la data science</li>
         </ul>
+        <div class="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <h3>Palindrome Checker</h3>
+                <div class="interactive-project" id="palindrome-container">
+                    <input type="text" id="palindrome-input" placeholder="Entrez un mot...">
+                    <button id="palindrome-button">Vérifier</button>
+                    <p id="palindrome-result">Le résultat s'affichera ici.</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Prince673-boo/palindrome-checker" target="_blank">Voir le code</a>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <h3>Mini analyse de données</h3>
+                <div class="interactive-project" id="chart-container">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Prince673-boo/data-analysis-intro" target="_blank">Voir le code</a>
+                </div>
+            </div>
+
+            <!-- Projet 3: Régression Linéaire -->
+            <div class="project-card">
+                <h3>Prédiction par Régression Linéaire</h3>
+                <div class="interactive-project" id="regression-container">
+                    <label for="regression-input">Entrez une valeur (ex: surface en m²):</label>
+                    <input type="number" id="regression-input" placeholder="Ex: 120">
+                    <button id="regression-button">Prédire le prix</button>
+                    <p id="regression-result">La prédiction s'affichera ici.</p>
+                </div>
+                <div class="project-links">
+                    <!-- Mettez ici le lien vers votre projet de régression sur GitHub -->
+                    <a href="https://github.com/Prince673-boo/linear-regression-project" target="_blank">Voir le code Python</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>Email : <a href="mailto:i8674333@gmail.com">i8674333@gmail.com</a></p>
-        <p>GitHub : <a href="https://github.com/Prince637-boo">github.com/Prince637-boo</a></p>
+        <!-- Note : Le lien GitHub a été corrigé pour correspondre aux autres liens du portfolio -->
+        <p>GitHub : <a href="https://github.com/Prince673-boo" target="_blank">github.com/Prince673-boo</a></p>
     </section>
 
     <footer>

@@ -196,3 +196,180 @@ a:hover {
     color: #88e6b3;
     /* Couleur plus claire au survol */
 }
+
+
+/* --- Section Projets --- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #3a3f4b;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Pour que l'image ne dépasse pas les coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(46, 204, 113, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* Assure que l'image couvre la zone sans se déformer */
+}
+
+.project-card h3 {
+    padding: 15px 15px 5px 15px;
+    margin: 0;
+    color: #2ecc71;
+    /* Couleur d'accentuation pour le titre du projet */
+}
+
+.project-card p {
+    padding: 0 15px 15px 15px;
+    flex-grow: 1;
+    /* Permet à la description de prendre l'espace restant */
+    font-size: 0.95em;
+}
+
+.project-links {
+    padding: 0 15px 15px 15px;
+    margin-top: auto;
+    /* Pousse les liens en bas de la carte */
+}
+
+.project-links a {
+    background-color: #2ecc71;
+    color: #1c1c1c;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: #88e6b3;
+    color: #1c1c1c;
+}
+
+
+/* --- Styles pour les projets interactifs --- */
+
+.interactive-project {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
+    /* Hauteur équivalente à celle des anciennes images */
+}
+
+#palindrome-container {
+    align-items: center;
+    text-align: center;
+}
+
+#palindrome-input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #2c3e50;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+
+/* --- Media Queries pour la responsivité --- */
+
+@media (max-width: 768px) {
+    body {
+        /* Désactive l'effet de lumière qui ne fonctionne pas sur mobile */
+        background: linear-gradient(to bottom right, #1c1c1c, #2c3e50);
+    }
+    header h1 {
+        font-size: 2em;
+        /* Taille de titre réduite pour les petits écrans */
+    }
+    header p {
+        font-size: 1em;
+    }
+    section {
+        padding: 15px;
+        margin: 10px;
+        /* Un peu de marge sur les côtés au lieu de centrer */
+    }
+    #about .container {
+        flex-direction: column;
+        /* Empile l'image et le texte verticalement */
+        text-align: center;
+    }
+    #about .profile-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        /* Espace entre l'image et le texte */
+    }
+    .projects-grid {
+        /* Sur mobile, une seule colonne est souvent préférable */
+        grid-template-columns: 1fr;
+    }
+}
+
+#palindrome-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2ecc71;
+    color: #1c1c1c;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#palindrome-button:hover {
+    background-color: #88e6b3;
+}
+
+#palindrome-result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* --- Styles pour le projet de régression --- */
+
+#regression-container {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    /* Ajoute de l'espace entre les éléments */
+}
+
+#regression-container label {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+#regression-input {
+    width: 60%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #2c3e50;
+    color: #e0e0e0;
+    text-align: center;
+}
