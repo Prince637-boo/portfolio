@@ -1,120 +1,102 @@
-body {
-    background: red !important;
-}
-
 :root {
-    /* Thème sombre par défaut */
-    --bg-gradient: linear-gradient(to bottom right, #1c1c1c, #2c3e50);
-    --bg-light-effect: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.1), transparent 70%);
-    --text-primary: #e0e0e0;
+    /* Nouveau thème Violet / Bleu / Noir */
+    --bg-gradient: linear-gradient(135deg, #0d0221, #0c164f, #000000);
+    --bg-light-effect: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(167, 92, 232, 0.1), transparent 70%);
+    --text-primary: #c0c0c0;
     --text-title: #ffffff;
-    --bg-section: rgba(40, 44, 52, 0.8);
-    --border-section: #3a3f4b;
-    --bg-card: #3a3f4b;
-    --bg-card-hover: #4a505c;
-    --accent-primary: #2ecc71;
-    --accent-hover: #88e6b3;
-    --text-on-accent: #1c1c1c;
-    --shadow-color: rgba(0, 0, 0, 0.4);
-    --shadow-hover-color: rgba(46, 204, 113, 0.2);
+    --bg-section: rgba(13, 2, 33, 0.5); /* Fond de section semi-transparent */
+    --border-section: #2a1a4a;
+    --bg-card: rgba(20, 10, 50, 0.7);
+    --bg-card-hover: rgba(30, 20, 70, 0.8);
+    --accent-primary: #a75ce8; /* Violet pour les accents */
+    --accent-secondary: #5c73e8; /* Bleu pour les accents secondaires */
+    --accent-hover: #c48ef0;
+    --text-on-accent: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-hover-color: rgba(167, 92, 232, 0.2);
 }
 
-:root.light-theme {
-    /* Thème clair */
-    --bg-gradient: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
-    --bg-light-effect: radial-gradient(circle 600px at var(--mouse-x) var(--mouse-y), rgba(46, 204, 113, 0.08), transparent 70%);
-    --text-primary: #333333;
-    --text-title: #1c1c1c;
-    --bg-section: rgba(255, 255, 255, 0.8);
-    --border-section: #cccccc;
-    --bg-card: #ffffff;
-    --bg-card-hover: #f9f9f9;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --shadow-hover-color: rgba(46, 204, 113, 0.15);
-    --text-on-accent: #ffffff;
+/* --- Déclaration des polices locales --- */
+/* Remplacez les noms de fichiers si ceux que vous avez téléchargés sont différents */
+
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter-v13-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
 }
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter-v13-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Space Grotesk */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('fonts/space-grotesk-v16-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('fonts/space-grotesk-v16-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Playfair Display */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/playfair-display-v36-latin-italic.woff2') format('woff2');
+  font-weight: 400; /* Le poids peut varier, ajustez si besoin */
+  font-style: italic;
+}
+
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background: var(--bg-gradient);
+    line-height: 1.7;
+    /* Ajout d'une texture pour un effet plus riche */
+    background-color: #0d0221; /* Fallback */
+    background-image: var(--bg-gradient), url('https://www.transparenttextures.com/patterns/dark-matter.png');
+    background-blend-mode: color-dodge;
+    background-attachment: fixed; /* Empêche le dégradé de bouger au scroll */
     color: var(--text-primary);
     transition: background 0.3s ease, color 0.3s ease;
     position: relative;
-    /* Nécessaire pour positionner le pseudo-élément */
     z-index: 0;
 }
-
-/* On applique le curseur personnalisé à tous les éléments interactifs */
-a,
-button {
-}
-
 
 /* On isole l'effet de lumière dans un pseudo-élément pour la performance */
 
 body::before {
     content: '';
     position: fixed;
-    /* Fixe par rapport à la fenêtre */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-light-effect);
+    /* Effet de halo statique et subtil */
+    background: radial-gradient(circle 800px at 50% 30%, rgba(167, 92, 232, 0.08), transparent 70%);
     pointer-events: none;
-    transition: background 0.2s linear; /* Rend le mouvement de la lumière plus fluide */
-    /* Permet de cliquer à travers l'élément */
     z-index: -1;
-    /* Place l'effet derrière tout le contenu */
 }
+
 /* --- Section Héroïque --- */
 header#hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    height: 100vh;
-    padding: 0 20px;
+    min-height: 100vh;
+    padding: 40px 20px;
     position: relative;
-    background: var(--bg-gradient); /* On utilise le dégradé de fond du thème */
-}
-
-/* Overlay pour assombrir l'image et rendre le texte lisible */
-header#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent; /* On rend l'overlay transparent car il n'y a plus d'image */
-    z-index: 1;
-}
-
-header#hero h1 {
-    position: relative; /* Pour passer au-dessus de l'overlay */
-    z-index: 2;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    /* Taille de police responsive */
-    margin: 0;
-    color: var(--text-title);
-    line-height: 1.1;
-}
-
-header#hero p {
-    position: relative; /* Pour passer au-dessus de l'overlay */
-    z-index: 2;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2em;
-    font-style: italic;
-    max-width: 500px;
-    margin-top: 10px;
-    color: var(--text-primary); /* Utilise la variable pour s'adapter au thème */
+    box-sizing: border-box;
 }
 
 /* Flèche pour inciter au défilement */
@@ -133,81 +115,94 @@ header#hero p {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) rotate(-45deg) translateY(0);
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) rotate(-45deg) translateY(0); }
+    40% { transform: translateX(-50%) rotate(-45deg) translateY(-10px); }
+    60% { transform: translateX(-50%) rotate(-45deg) translateY(-5px); }
+}
+
+
+.hero-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.hero-intro {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+    /* Animation d'apparition plus simple */
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+.hero-text h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin: 0;
+    color: var(--text-title);
+    animation: fadeInSlide 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.quote {
+    font-family: 'Playfair Display', serif; /* Police stylée pour la citation */
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px 0 0 0;
+    color: var(--text-primary);
+    animation: fadeInSlide 1s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.quote .highlight {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.hero-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.hero-description h2 {
+    color: var(--accent-secondary);
+    font-size: 1.8rem;
+}
+
+/* Animations d'entrée pour la section Héro */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
     }
-    40% {
-        transform: translateX(-50%) rotate(-45deg) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) rotate(-45deg) translateY(-5px);
-    }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 
 h1,
 h2 {
+    font-family: 'Playfair Display', serif; /* Police plus élégante pour les titres */
     color: var(--text-title);
     /* Tous les titres de section en blanc */
     margin-bottom: 10px;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-#about .container {
-    display: flex;
-    align-items: center;
-}
-
-#about .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 20px;
-}
-
-#about .profile-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-#about .profile-content {
-    flex: 1;
-}
-
-#about p {
-    text-align: justify;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Ombre portée pour la lisibilité */
 }
 
 /* --- Styles pour les sections avec image de fond --- */
 
-section#about,
-section#skills,
-section#contact {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-/* On ajoute un overlay pour la lisibilité */
-section#about::before,
-section#skills::before,
-section#contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-section);
-    backdrop-filter: blur(2px);
-    z-index: 0;
-}
-
-/* On s'assure que le contenu est au-dessus de l'overlay */
-section#about > *,
+/* On retire les images de fond pour un style plus sobre */
 section#skills > *,
 section#contact > * {
     position: relative;
@@ -215,16 +210,6 @@ section#contact > * {
 }
 
 /* --- Images spécifiques pour chaque section --- */
-section#about {
-    background-image: url('https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1974&auto=format&fit=crop');
-}
-
-section#skills {
-    background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop');
-}
-section#contact {
-    background-image: url('https://images.unsplash.com/photo-1554141446-99993a29c457?q=80&w=1965&auto=format&fit=crop');
-}
 
 section {
     padding: 40px;
@@ -234,92 +219,151 @@ section {
     border: 1px solid var(--border-section);
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     background-color: var(--bg-section);
 }
 
+/* Séparateur décoratif entre les sections */
+.section-divider {
+    height: 1px;
+    width: 100px;
+    margin: 60px auto;
+    background: linear-gradient(to right, transparent, var(--border-section), transparent);
+    position: relative;
+}
+.section-divider::before {
+    content: '◆';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--border-section);
+    background: #0d0221; /* Doit correspondre à la couleur de fond principale */
+    padding: 0 10px;
+}
+
 .hidden {
-    opacity: 0.1;
-    /* On commence avec une légère opacité pour un effet plus doux */
-    transform: translateY(40px);
-    filter: blur(5px);
-    /* Effet de flou pour l'apparition */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(20px); /* Translation plus subtile */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .show {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
 }
 
-/* Style pour la liste des compétences */
-
-.skills-list {
+/* --- Section Compétences --- */
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 0;
-    list-style-type: none;
-    /* On retire les puces car on a des icônes */
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+    justify-content: center;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--bg-card);
-    /* Footer sombre et uni */
-    color: var(--text-primary);
-    margin-top: 40px;
-}
-
-footer p {
-    font-size: 0.9em;
-    opacity: 0.8;
-}
-
-.skills-list li {
-    background-color: var(--bg-card);
-    /* Fond pour chaque compétence */
-    padding: 10px 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;    
+.skill-item {
     position: relative;
-    overflow: hidden;
-    /* Pour l'animation d'apparition */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-
+    background-color: var(--bg-card);
+    height: 90px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.skills-list li:hover {
-    box-shadow: 0 6px 12px var(--shadow-color);
-    transform: translateY(-3px);
+.skill-item:hover {
+    transform: translateY(-5px);
     background-color: var(--bg-card-hover);
-    z-index: 1;
 }
 
-/* Animation d'apparition en décalé pour les compétences */
-.skills-list.show li {
+.skill-item img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    /* Effet pour rendre l'icône blanche par défaut */
+    filter: invert(75%) sepia(10%) saturate(10%) hue-rotate(200deg) brightness(150%) contrast(90%);
+    transition: filter 0.3s ease;
+}
+
+.skill-item:hover img {
+    filter: none; /* Révèle la couleur originale au survol */
+}
+
+.skill-item span {
+    position: absolute;
+    bottom: -25px;
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.skill-item:hover span {
     opacity: 1;
-    transform: translateY(0);
+    bottom: -30px;
 }
 
-.skills-list li:hover::before {
-    transform: scaleX(1);
-    /* Effet de lumière */
+/* --- Section Expériences (Timeline) --- */
+#experience {
+    max-width: 900px;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* La ligne verticale de la timeline */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border-section);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px; /* Espace pour le point et la ligne */
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 11px; /* (40px padding - 18px width) / 2 */
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--accent-secondary);
+    border: 3px solid var(--bg-section);
+    box-shadow: 0 0 10px var(--accent-secondary);
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    color: var(--accent-primary);
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-primary);
     opacity: 0.8;
-    /* Léger changement de couleur au survol */
+    margin-bottom: 10px;
 }
 
-.skills-list li img {
-    width: 24px;
-    /* Taille des logos légèrement augmentée */
-    height: 24px;
-    margin-right: 12px;
-    /* Espace entre le logo et le texte */
+.timeline-content p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6;
 }
 
 /* Style pour l'effet de lumière au survol */
@@ -338,12 +382,6 @@ footer p {
     transition: transform 0.3s ease;
     z-index: -1;
 }
-
-.skills-list li:hover img {
-    transform: scale(1.2);
-    /* Zoom sur l'image au survol */
-}
-
 
 /* Style pour les liens */
 
@@ -364,30 +402,11 @@ a:hover {
 
 section#projects {
     max-width: none;
-    /* Permet à la section de prendre toute la largeur */
-    background-color: transparent; /* Assure que l'image est visible */
+    background-color: transparent;
     padding: 60px 5%;
-    /* On augmente le padding pour donner de l'air */
-    position: relative;
-    /* Nécessaire pour l'overlay */
-    background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-/* On ajoute un overlay pour que les cartes de projet restent lisibles */
-section#projects::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-section);
-    /* Fond sombre semi-transparent */
-    backdrop-filter: blur(2px);
-    z-index: 0;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
 }
 
 .projects-grid {
@@ -395,8 +414,6 @@ section#projects::before {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 25px;
     padding: 20px 0;
-    position: relative;
-    /* Pour passer au-dessus de l'overlay */
     z-index: 1;
 }
 
@@ -418,15 +435,14 @@ section#projects::before {
 
 .project-media {
     position: relative;
-    height: 180px; /* Hauteur fixe pour contenir l'image et l'interactif */
-    background-color: var(--bg-card-hover); /* Couleur de fond pendant la transition */
+    height: 200px; /* Hauteur fixe pour l'image */
+    background-color: #000;
 }
 
-.project-card img {
+.project-card .project-image {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    /* Assure que l'image couvre la zone sans se déformer */
     transition: opacity 0.4s ease-in-out;
     position: absolute;
     top: 0;
@@ -434,17 +450,55 @@ section#projects::before {
     z-index: 2;
 }
 
-.project-card:hover img {
+.project-card:hover .project-image {
     opacity: 0;
     z-index: 0;
 }
 
-.project-card .interactive-project {
+/* Pour le projet de graphique qui n'a pas d'image de fond, on assombrit le fond au survol */
+.project-card:hover #chart-container {
+    background-color: var(--bg-card);
+}
+
+/* On retire les projets interactifs pour un design plus sobre */
+/* Ils sont remplacés par un lien qui apparaît au survol */
+.interactive-project {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - 30px);
     opacity: 0;
-    transition: opacity 0.4s ease-in-out 0.2s; /* Apparition retardée */
+    transition: opacity 0.4s ease-in-out 0.2s;
 }
 
 .project-card:hover .interactive-project {
+    opacity: 1;
+}
+
+#palindrome-container, #regression-container {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+#palindrome-input, #regression-input {
+    width: 80%;
+}
+
+/* Le conteneur du graphique est une exception, on le garde visible */
+#chart-container {
+    display: block;
+    position: relative;
+    height: 200px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: var(--bg-card-hover);
+    transition: background-color 0.3s ease;
+}
+#chart-container, .project-card:hover #chart-container {
     opacity: 1;
 }
 
@@ -452,7 +506,7 @@ section#projects::before {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Prend l'espace restant */
+    flex-grow: 1;
 }
 
 .project-content h3 {
@@ -462,8 +516,7 @@ section#projects::before {
 }
 
 .project-links {
-    margin-top: auto;
-    /* Pousse les liens en bas de la carte */
+    margin-top: auto; /* Pousse les liens en bas de la carte */
     padding-top: 10px; /* Espace au-dessus du bouton */
 }
 
@@ -483,57 +536,21 @@ section#projects::before {
 }
 
 
-/* --- Styles pour les projets interactifs --- */
-
-.interactive-project {
-    padding: 15px;
-    flex-grow: 1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    z-index: 1; /* S'assure qu'il est au-dessus de l'image au survol */
-    width: calc(100% - 30px); /* 100% - padding gauche/droite */
-    /* Hauteur équivalente à celle des anciennes images */
-}
-
-/* On s'assure que le graphique est toujours visible */
-#chart-container {
-    opacity: 1;
-}
-
-#palindrome-container {
-    align-items: center;
-    text-align: center;
-}
-
-#palindrome-input {
-    width: 80%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid var(--border-section);
-    background-color: var(--bg-card-hover);
-    color: var(--text-primary);
-    text-align: center;
-}
-
 
 /* --- Style du bouton de thème --- */
 
 #theme-toggle {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
     background: var(--bg-card);
     color: var(--text-primary);
-    border: 1px solid var(--border-section);
+    border: 1px solid var(--accent-primary);
     border-radius: 50%;
     width: 40px;
     height: 40px;
     font-size: 20px;
-    cursor: pointer;
+    cursor: pointer; /* Le curseur reste un pointeur pour cet élément */
     z-index: 2; /* Pour s'assurer qu'il est au-dessus de l'overlay */
     transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
@@ -542,20 +559,14 @@ section#projects::before {
 /* --- Media Queries pour la responsivité --- */
 
 @media (max-width: 768px) {
-    body {
-        /* Désactive l'effet de lumière qui ne fonctionne pas sur mobile */
-        /* Le pseudo-élément n'est pas affiché par défaut, donc pas besoin de le cacher ici */
-    }
-    header h1 {
-        font-size: 2em;
-        /* Taille de titre réduite pour les petits écrans */
-    }
     header p {
         font-size: 1em;
     }
+
     h2 {
         font-size: 1.5em; /* Taille des titres de section réduite */
     }
+
     section {
         /* On s'assure que la section prend toute la largeur disponible */
         max-width: calc(100% - 20px);
@@ -563,58 +574,104 @@ section#projects::before {
         padding: 15px 20px;
         /* Un peu plus de padding sur les côtés */
     }
-    /* On désactive l'effet de parallaxe sur mobile pour la performance */
-    header#hero,
-    section#about,
-    section#skills,
-    section#projects,
-    section#contact {
-        background-attachment: scroll;
+
+    .section-divider {
+        /* On réduit l'espace vertical entre les sections */
+        margin: 40px auto;
     }
+
+    .hero-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+
     section#projects {
         padding: 40px 20px; /* On réduit le padding vertical de la section projets */
     }
-    #about .container {
-        flex-direction: column;
-        /* Empile l'image et le texte verticalement */
-        text-align: center;
-    }
-    #about .profile-image {
-        margin-right: 0;
-        margin-bottom: 20px;
-        /* Espace entre l'image et le texte */
-    }
-    #about .profile-content {
-        /* Centre le titre "À propos de moi" sous l'image */
-        text-align: center;
-    }
+
     #about p {
         text-align: left; /* Texte justifié est difficile à lire sur mobile */
     }
-    .skills-list {
-        /* Sur mobile, on peut réduire la largeur minimale pour un meilleur ajustement */
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+    /* --- NOUVELLE MISE EN PAGE POUR LES COMPÉTENCES --- */
+    .skills-grid {
+        display: flex; /* On passe en flexbox */
+        overflow-x: auto; /* Active le défilement horizontal */
+        padding: 20px 10px;
+        gap: 25px;
+        /* Cache la barre de défilement pour un look plus propre */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
+    .skills-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+    .skill-item {
+        flex-shrink: 0; /* Empêche les items de se rétrécir */
+        width: 90px; /* Taille fixe pour le défilement */
+    }
+    .skill-item span {
+        /* Le nom est toujours visible sur mobile car il n'y a pas de survol */
+        opacity: 1;
+        bottom: -25px;
+        font-size: 0.8em;
+    }
+
+    /* --- NOUVELLE MISE EN PAGE POUR LES PROJETS --- */
     .projects-grid {
-        /* Sur mobile, une seule colonne est souvent préférable */
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: flex; /* On change le display en flexbox */
+        flex-direction: column; /* Les projets s'empilent verticalement */
+        gap: 30px;
     }
     .project-card {
-        /* On revient à une disposition verticale, plus classique et lisible */
-        flex-direction: column;
+        flex-direction: row; /* Image à gauche, contenu à droite */
+        align-items: center;
+        gap: 15px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .project-card:hover {
+        transform: none;
+        box-shadow: none;
     }
     .project-media {
-        /* L'image/interactif reprend sa hauteur normale */
-        height: 180px;
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        overflow: hidden;
     }
     .project-content {
-        /* On ajoute un fond pour bien séparer le contenu de l'image */
-        background-color: var(--bg-card-hover);
+        padding: 0;
     }
+    .project-card .project-image, .project-card:hover .project-image {
+        opacity: 1; /* L'image est toujours visible */
+    }
+
     /* On cache l'effet de lumière sur les appareils tactiles/petits écrans */
     body::before {
         display: none;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 40px;
+    }
+    .timeline-dot {
+        left: 1px;
+    }
+    section {
+        /* On réduit l'effet de flou pour de meilleures performances sur mobile */
+        backdrop-filter: blur(5px);
+        background-color: rgba(13, 2, 33, 0.7);
     }
 }
 
@@ -625,7 +682,6 @@ section#projects::before {
     background-color: var(--accent-primary);
     color: var(--text-on-accent);
     font-weight: bold;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -641,13 +697,6 @@ section#projects::before {
 
 /* --- Styles pour le projet de régression --- */
 
-#regression-container {
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    /* Ajoute de l'espace entre les éléments */
-}
-
 #regression-container label {
     font-size: 0.9em;
     opacity: 0.8;
@@ -655,10 +704,50 @@ section#projects::before {
 
 #regression-input {
     width: 60%;
-    padding: 8px;
     border-radius: 4px;
     border: 1px solid var(--border-section);
     background-color: var(--bg-card-hover);
     color: var(--text-primary);
     text-align: center;
+}
+
+/* --- Styles pour la section Contact améliorée --- */
+#contact {
+    text-align: center;
+}
+
+.contact-email {
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a img {
+    width: 35px;
+    height: 35px;
+    filter: invert(75%) sepia(10%) saturate(10%) hue-rotate(200deg) brightness(150%) contrast(90%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover img {
+    filter: none;
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--bg-card);
+    /* Footer sombre et uni */
+    color: var(--text-primary);
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 0.9em;
+    opacity: 0.8;
 }
