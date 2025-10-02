@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <header>
+    <header id="hero">
         <h1>TCHAGODOMOU ISSA Prince</h1>
         <p id="typing-subtitle">Étudiant en cycle préparatoire à l'ESAT-Togo | Futur ingénieur en IA</p>
         <button id="theme-toggle" title="Changer de thème">🌙</button>
+        <a href="#about" class="scroll-down-arrow" aria-label="Faire défiler vers le bas"></a>
     </header>
 
-    <section id="about">
+    <section id="about" class="hidden">
         <div class="container">
             <div class="profile-image">
                 <img src="image/ai_images.png" alt="ma photo de profil">
@@ -29,7 +30,7 @@
 
     <section id="skills">
         <h2>Compétences</h2>
-        <ul class="skills-list">
+        <ul class="skills-list hidden">
             <li><img src="image/python.webp" alt="Python logo"> Python, HTML, CSS</li>
             <li><img src="image/git.png" alt="Git logo"> Git / GitHub</li>
             <li>
@@ -43,19 +44,18 @@
 
     <section id="projects" class="hidden">
         <h2>Projets</h2>
-        <ul>
-            <li><strong>Palindrome Checker</strong> : Programme en Python qui vérifie si un mot est un palindrome</li>
-            <li><strong>Mini analyse de données</strong> : Projet d’introduction à la data science</li>
-        </ul>
         <div class="projects-grid">
             <!-- Projet 1 -->
             <div class="project-card">
                 <h3>Palindrome Checker</h3>
-                <div class="interactive-project" id="palindrome-container">
-                    <label for="palindrome-input" class="sr-only">Vérificateur de palindrome</label>
-                    <input type="text" id="palindrome-input" placeholder="Entrez un mot ou une phrase...">
-                    <button id="palindrome-button">Vérifier</button>
-                    <p id="palindrome-result" aria-live="polite">Le résultat s'affichera ici.</p>
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=2070&auto=format&fit=crop" alt="Image conceptuelle pour le vérificateur de palindrome">
+                    <div class="interactive-project" id="palindrome-container">
+                        <label for="palindrome-input" class="sr-only">Vérificateur de palindrome</label>
+                        <input type="text" id="palindrome-input" placeholder="Entrez un mot ou une phrase...">
+                        <button id="palindrome-button">Vérifier</button>
+                        <p id="palindrome-result" aria-live="polite">Le résultat s'affichera ici.</p>
+                    </div>
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/Prince673-boo/palindrome-checker" target="_blank">Voir le code</a>
@@ -65,8 +65,10 @@
             <!-- Projet 2 -->
             <div class="project-card">
                 <h3>Mini analyse de données</h3>
-                <div class="interactive-project" id="chart-container">
-                    <canvas id="myChart"></canvas>
+                <div class="project-media">
+                    <div class="interactive-project" id="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/Prince673-boo/data-analysis-intro" target="_blank">Voir le code</a>
@@ -76,21 +78,24 @@
             <!-- Projet 3: Régression Linéaire -->
             <div class="project-card">
                 <h3>Prédiction par Régression Linéaire</h3>
-                <div class="interactive-project" id="regression-container">
-                    <label for="regression-input">Entrez une valeur (ex: surface en m²):</label>
-                    <input type="number" id="regression-input" placeholder="Ex: 120">
-                    <button id="regression-button">Prédire le prix</button>
-                    <p id="regression-result" aria-live="polite">La prédiction s'affichera ici.</p>
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Image conceptuelle pour la régression linéaire">
+                    <div class="interactive-project" id="regression-container">
+                        <label for="regression-input">Entrez une valeur (ex: surface en m²):</label>
+                        <input type="number" id="regression-input" placeholder="Ex: 120">
+                        <button id="regression-button">Prédire le prix</button>
+                        <p id="regression-result" aria-live="polite">La prédiction s'affichera ici.</p>
+                    </div>
                 </div>
                 <div class="project-links">
                     <!-- Mettez ici le lien vers votre projet de régression sur GitHub -->
-                    <a href="https://github.com/Prince673-boo/linear-regression-project" target="_blank">Voir le code Python</a>
+                    <a href="https://github.com/Prince637-boo/linear-regression-project" target="_blank">Voir le code Python</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="hidden">
         <h2>Contact</h2>
         <p>Email : <a href="mailto:i8674333@gmail.com">i8674333@gmail.com</a></p>
         <!-- Note : Le lien GitHub a été corrigé pour correspondre aux autres liens du portfolio -->

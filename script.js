@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Démarrer l'effet
         typeWriter(subtitleElement, fullText);
     }
+
     // Effet de lumière qui suit la souris
     document.addEventListener('mousemove', e => {
         document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Logique pour la Mini Analyse de Données (Graphique) ---
     let chartHasBeenCreated = false;
     const chartCanvas = document.getElementById('myChart');
+
 
     function createChart() {
         if (chartHasBeenCreated) return; // Empêche la recréation du graphique
@@ -149,13 +151,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Si l'élément est le canvas du graphique, on crée le graphique
-                if (entry.target.id === 'myChart') {
+                const target = entry.target;
+
+                if (target.id === 'myChart') {
                     createChart();
+                }
+
+                if (target.classList.contains('skills-list')) {
+                    // Cas spécial pour la liste de compétences pour l'animation en décalé
+                    target.classList.add('show');
+                    target.querySelectorAll('li').forEach((li, index) => {
+                        // On ajoute un délai de transition à chaque élément de la liste
+                        li.style.transitionDelay = `${index * 100}ms`;
+                    });
                 } else {
                     // Sinon, c'est une section, on ajoute la classe 'show'
-                    entry.target.classList.add('show');
+                    target.classList.add('show');
                 }
+
                 // On arrête d'observer l'élément une fois qu'il est visible
                 observer.unobserve(entry.target); // On arrête d'observer une fois l'animation lancée
             }
@@ -163,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.15 });
 
     // On observe toutes les sections cachées ET le canvas du graphique
-    document.querySelectorAll('section.hidden, #myChart').forEach(el => {
+    document.querySelectorAll('section.hidden, .skills-list, #myChart').forEach(el => {
         scrollObserver.observe(el);
     });
 });
