@@ -130,22 +130,15 @@ document.addEventListener('DOMContentLoaded', function() {
         applyTheme(savedTheme);
     } else {
         // Si aucun thème n'est sauvegardé, on se base sur la préférence système
-        if (prefersDark) {
-            applyTheme('dark');
-        } else {
-            applyTheme('light');
-        }
+        applyTheme(prefersDark ? 'dark' : 'light');
     }
 
     themeToggle.addEventListener('click', () => {
-        // Si le thème actuel (ou par défaut) est sombre, on passe au clair
+        // Si le thème actuel est clair, on passe au sombre, et vice-versa.
         const isLight = document.documentElement.classList.contains('light-theme');
-        if (isLight) {
-            applyTheme('dark');
-        } else {
-            applyTheme('light');
-        }
+        applyTheme(isLight ? 'dark' : 'light');
     });
+
 
     // --- Logique unifiée pour les animations au défilement ---
     const scrollObserver = new IntersectionObserver((entries, observer) => {

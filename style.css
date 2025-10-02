@@ -27,6 +27,7 @@
     --bg-card-hover: #f9f9f9;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --shadow-hover-color: rgba(46, 204, 113, 0.15);
+    --text-on-accent: #ffffff;
 }
 
 body {
@@ -215,9 +216,9 @@ section#contact > * {
 
 /* --- Images spécifiques pour chaque section --- */
 section#about {
-    background-color: transparent; /* Assure que l'image est visible */
     background-image: url('https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1974&auto=format&fit=crop');
 }
+
 section#skills {
     background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop');
 }
@@ -227,15 +228,20 @@ section#contact {
 
 section {
     padding: 40px;
+    max-width: 900px;
+    position: relative;
     margin: 40px auto;
-    background-color: var(--bg-section); /* Ligne restaurée pour le fond des sections */
     border: 1px solid var(--border-section);
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(5px);
-    /* Effet de verre dépoli pour les navigateurs compatibles */
-    position: relative; /* Pour les animations d'apparition */
 }
+
+/* Applique le fond aux sections qui n'ont PAS d'image */
+section:not(#about):not(#skills):not(#projects):not(#contact) {
+    background-color: var(--bg-section);
+}
+
 
 .hidden {
     opacity: 0.1;
@@ -433,15 +439,6 @@ section#projects::before {
     z-index: 2;
 }
 
-.project-card h3 {
-    padding: 15px;
-    margin: 0;
-    color: var(--accent-primary);
-    /* Couleur d'accentuation pour le titre du projet */
-    background-color: var(--bg-card);
-    border-bottom: 1px solid var(--border-section);
-}
-
 .project-card:hover img {
     opacity: 0;
     z-index: 0;
@@ -456,17 +453,23 @@ section#projects::before {
     opacity: 1;
 }
 
-.project-card p {
-    padding: 0 15px 15px 15px;
-    flex-grow: 1;
-    /* Permet à la description de prendre l'espace restant */
-    font-size: 0.95em;
+.project-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Prend l'espace restant */
+}
+
+.project-content h3 {
+    margin: 0 0 10px 0;
+    color: var(--accent-primary);
+    font-size: 1.2em;
 }
 
 .project-links {
-    padding: 0 15px 15px 15px;
     margin-top: auto;
     /* Pousse les liens en bas de la carte */
+    padding-top: 10px; /* Espace au-dessus du bouton */
 }
 
 .project-links a {
@@ -522,6 +525,25 @@ section#projects::before {
 }
 
 
+/* --- Style du bouton de thème --- */
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-section);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2; /* Pour s'assurer qu'il est au-dessus de l'overlay */
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+
 /* --- Media Queries pour la responsivité --- */
 
 @media (max-width: 768px) {
@@ -567,6 +589,9 @@ section#projects::before {
         margin-bottom: 20px;
         /* Espace entre l'image et le texte */
     }
+    #about p {
+        text-align: left; /* Texte justifié est difficile à lire sur mobile */
+    }
     .skills-list {
         /* Sur mobile, on peut réduire la largeur minimale pour un meilleur ajustement */
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -574,6 +599,22 @@ section#projects::before {
     .projects-grid {
         /* Sur mobile, une seule colonne est souvent préférable */
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .project-media {
+        flex: 0 0 100px; /* Taille fixe pour l'image/interactif */
+        height: 100px;
+    }
+    .project-card {
+        flex-direction: row; /* Met l'image à côté du contenu */
+        align-items: stretch; /* Étire les éléments sur toute la hauteur */
+    }
+    .project-content {
+        padding: 10px 15px;
+        justify-content: center; /* Centre le contenu verticalement */
+    }
+    .project-content h3 {
+        font-size: 1.1em;
     }
     /* On cache l'effet de lumière sur les appareils tactiles/petits écrans */
     body::before {
@@ -624,22 +665,4 @@ section#projects::before {
     background-color: var(--bg-card-hover);
     color: var(--text-primary);
     text-align: center;
-}
-
-
-/* --- Style du bouton de thème --- */
-
-#theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--bg-card);
-    color: var(--text-primary);
-    border: 1px solid var(--border-section);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
 }
