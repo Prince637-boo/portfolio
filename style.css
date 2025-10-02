@@ -1,3 +1,7 @@
+body {
+    background: red !important;
+}
+
 :root {
     /* Thème sombre par défaut */
     --bg-gradient: linear-gradient(to bottom right, #1c1c1c, #2c3e50);
@@ -76,11 +80,7 @@ header#hero {
     height: 100vh;
     padding: 0 20px;
     position: relative;
-    overflow: hidden; /* Pour s'assurer que l'overlay ne dépasse pas */
-    background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Effet de parallaxe simple */
+    background: var(--bg-gradient); /* On utilise le dégradé de fond du thème */
 }
 
 /* Overlay pour assombrir l'image et rendre le texte lisible */
@@ -91,7 +91,7 @@ header#hero::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--bg-section); /* Utilise la variable pour s'adapter au thème */
+    background-color: transparent; /* On rend l'overlay transparent car il n'y a plus d'image */
     z-index: 1;
 }
 
@@ -235,13 +235,8 @@ section {
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(5px);
-}
-
-/* Applique le fond aux sections qui n'ont PAS d'image */
-section:not(#about):not(#skills):not(#projects):not(#contact) {
     background-color: var(--bg-section);
 }
-
 
 .hidden {
     opacity: 0.1;
@@ -589,6 +584,10 @@ section#projects::before {
         margin-bottom: 20px;
         /* Espace entre l'image et le texte */
     }
+    #about .profile-content {
+        /* Centre le titre "À propos de moi" sous l'image */
+        text-align: center;
+    }
     #about p {
         text-align: left; /* Texte justifié est difficile à lire sur mobile */
     }
@@ -601,20 +600,17 @@ section#projects::before {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    .project-media {
-        flex: 0 0 100px; /* Taille fixe pour l'image/interactif */
-        height: 100px;
-    }
     .project-card {
-        flex-direction: row; /* Met l'image à côté du contenu */
-        align-items: stretch; /* Étire les éléments sur toute la hauteur */
+        /* On revient à une disposition verticale, plus classique et lisible */
+        flex-direction: column;
+    }
+    .project-media {
+        /* L'image/interactif reprend sa hauteur normale */
+        height: 180px;
     }
     .project-content {
-        padding: 10px 15px;
-        justify-content: center; /* Centre le contenu verticalement */
-    }
-    .project-content h3 {
-        font-size: 1.1em;
+        /* On ajoute un fond pour bien séparer le contenu de l'image */
+        background-color: var(--bg-card-hover);
     }
     /* On cache l'effet de lumière sur les appareils tactiles/petits écrans */
     body::before {
