@@ -241,6 +241,7 @@ section {
     background: #0d0221; /* Doit correspondre à la couleur de fond principale */
     padding: 0 10px;
 }
+.section-divider.hidden { transform: scaleX(0); }
 
 .hidden {
     opacity: 0;
@@ -276,6 +277,7 @@ section {
 .skill-item:hover {
     transform: translateY(-5px);
     background-color: var(--bg-card-hover);
+    box-shadow: 0 0 20px var(--shadow-hover-color); /* Effet de lueur */
 }
 
 .skill-item img {
@@ -455,11 +457,6 @@ section#projects {
     z-index: 0;
 }
 
-/* Pour le projet de graphique qui n'a pas d'image de fond, on assombrit le fond au survol */
-.project-card:hover #chart-container {
-    background-color: var(--bg-card);
-}
-
 /* On retire les projets interactifs pour un design plus sobre */
 /* Ils sont remplacés par un lien qui apparaît au survol */
 .interactive-project {
@@ -488,25 +485,20 @@ section#projects {
     width: 80%;
 }
 
-/* Le conteneur du graphique est une exception, on le garde visible */
-#chart-container {
-    display: block;
-    position: relative;
-    height: 200px;
-    padding: 15px;
-    box-sizing: border-box;
-    background-color: var(--bg-card-hover);
-    transition: background-color 0.3s ease;
-}
-#chart-container, .project-card:hover #chart-container {
-    opacity: 1;
-}
-
 .project-content {
     padding: 15px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.project-image-back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .project-content h3 {
@@ -563,6 +555,11 @@ section#projects {
         font-size: 1em;
     }
 
+    body {
+        font-size: 17px; /* Augmente la taille de police de base pour la lisibilité */
+        font-size: 1em;
+    }
+
     h2 {
         font-size: 1.5em; /* Taille des titres de section réduite */
     }
@@ -599,59 +596,47 @@ section#projects {
         text-align: left; /* Texte justifié est difficile à lire sur mobile */
     }
 
-    /* --- NOUVELLE MISE EN PAGE POUR LES COMPÉTENCES --- */
     .skills-grid {
-        display: flex; /* On passe en flexbox */
-        overflow-x: auto; /* Active le défilement horizontal */
-        padding: 20px 10px;
-        gap: 25px;
-        /* Cache la barre de défilement pour un look plus propre */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-    .skills-grid::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-    .skill-item {
-        flex-shrink: 0; /* Empêche les items de se rétrécir */
-        width: 90px; /* Taille fixe pour le défilement */
-    }
-    .skill-item span {
-        /* Le nom est toujours visible sur mobile car il n'y a pas de survol */
-        opacity: 1;
-        bottom: -25px;
-        font-size: 0.8em;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
 
-    /* --- NOUVELLE MISE EN PAGE POUR LES PROJETS --- */
+    /* --- NOUVELLE MISE EN PAGE POUR LES PROJETS SUR MOBILE --- */
     .projects-grid {
-        display: flex; /* On change le display en flexbox */
-        flex-direction: column; /* Les projets s'empilent verticalement */
+        /* Les projets s'affichent sur une seule colonne */
+        grid-template-columns: 1fr;
         gap: 30px;
     }
     .project-card {
-        flex-direction: row; /* Image à gauche, contenu à droite */
-        align-items: center;
-        gap: 15px;
-        background-color: transparent;
-        box-shadow: none;
+        /* On s'assure que la carte est un conteneur de positionnement */
+        position: relative;
     }
     .project-card:hover {
+        /* On désactive l'effet de lévitation sur mobile */
         transform: none;
-        box-shadow: none;
-    }
-    .project-media {
-        flex-shrink: 0;
-        width: 100px;
-        height: 100px;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    .project-content {
-        padding: 0;
+        box-shadow: 0 4px 8px var(--shadow-color);
     }
     .project-card .project-image, .project-card:hover .project-image {
-        opacity: 1; /* L'image est toujours visible */
+        /* L'image ne disparaît plus, elle reste visible */
+        opacity: 1;
+        z-index: 1;
+    }
+    .interactive-project {
+        /* Les projets interactifs ne sont plus cachés derrière l'image */
+        opacity: 1;
+        z-index: 2;
+    }
+    .project-content {
+        /* Le contenu se superpose au bas de l'image */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        background: linear-gradient(to top, rgba(13, 2, 33, 0.95) 40%, transparent);
+        padding: 40px 15px 15px 15px; /* Ajoute de l'espace pour le dégradé */
+    }
+    .project-content h3 {
+        color: var(--text-title); /* Titre en blanc pour contraster sur le dégradé */
     }
 
     /* On cache l'effet de lumière sur les appareils tactiles/petits écrans */

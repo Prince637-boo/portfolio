@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-
     // --- Logique pour le Palindrome Checker ---
     const palindromeInput = document.getElementById('palindrome-input');
     const palindromeButton = document.getElementById('palindrome-button');
@@ -22,41 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             palindromeResult.style.color = '#e74c3c'; // Rouge
         }
     });
-
-    // --- Logique pour la Mini Analyse de Données (Graphique) ---
-    let chartHasBeenCreated = false;
-    const chartCanvas = document.getElementById('myChart');
-
-
-    function createChart() {
-        if (chartHasBeenCreated) return; // Prevents the chart from being recreated
-
-        const ctx = chartCanvas.getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Python', 'HTML/CSS', 'JS', 'Git', 'Data Sci.', 'Linux'],
-                datasets: [{
-                    label: 'Proficiency Level (Self-Assessed)',
-                    data: [8, 7, 5, 7, 6, 8], // Example data
-                    backgroundColor: 'rgba(46, 204, 113, 0.6)',
-                    borderColor: 'rgba(46, 204, 113, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
-                },
-                animation: {
-                    duration: 1000,
-                    easing: 'easeOutQuad'
-                }
-            }
-        });
-        chartHasBeenCreated = true;
-    }
 
     // --- Logique pour la Régression Linéaire ---
     const regressionInput = document.getElementById('regression-input');
@@ -91,10 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 const target = entry.target;
 
-                if (target.id === 'myChart') {
-                    createChart();
-                }
-
                 if (target.classList.contains('skills-grid')) {
                     // Special case for the skills list for staggered animation
                     target.classList.add('show');
@@ -113,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.15 });
 
     // On observe toutes les sections cachées ET le canvas du graphique
-    document.querySelectorAll('section.hidden, .skills-grid, #myChart').forEach(el => {
+    document.querySelectorAll('section.hidden, .skills-grid, .section-divider').forEach(el => {
         scrollObserver.observe(el);
     });
 });
