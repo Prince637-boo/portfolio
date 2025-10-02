@@ -215,6 +215,7 @@ section#contact > * {
 
 /* --- Images spécifiques pour chaque section --- */
 section#about {
+    background-color: transparent; /* Assure que l'image est visible */
     background-image: url('https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=1974&auto=format&fit=crop');
 }
 section#skills {
@@ -228,16 +229,13 @@ section {
     padding: 40px;
     margin: 40px auto;
     max-width: 900px;
+    background-color: var(--bg-section); /* Ligne restaurée pour le fond des sections */
     border: 1px solid var(--border-section);
     border-radius: 8px;
     box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(5px);
     /* Effet de verre dépoli pour les navigateurs compatibles */
     position: relative; /* Pour les animations d'apparition */
-}
-/* On applique le fond uniquement aux sections qui n'ont PAS d'image */
-section:not(#about):not(#skills):not(#projects):not(#contact) {
-    background-color: var(--bg-section);
 }
 
 .hidden {
@@ -367,6 +365,7 @@ a:hover {
 section#projects {
     max-width: none;
     /* Permet à la section de prendre toute la largeur */
+    background-color: transparent; /* Assure que l'image est visible */
     padding: 60px 5%;
     /* On augmente le padding pour donner de l'air */
     position: relative;
