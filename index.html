@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issa Prince - AI Engineer & Full Stack Developer</title>
+    <meta name="description" content="AI Engineer passionate about Machine Learning, Deep Learning, and building intelligent solutions.">
+    <link rel="preload" href="fonts/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation fixe moderne -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">IP</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-content">
+            <div class="hero-intro">
+                <div class="profile-picture-container">
+                    <img src="image/ai_images.png" alt="Issa Prince - AI Engineer" class="profile-picture">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        Available for work
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <p class="hero-greeting">👋 Hello, I'm</p>
+                    <h1>Issa Prince</h1>
+                    <p class="hero-title">AI Engineer & Full Stack Developer</p>
+                    <p class="quote">"Building the future, one algorithm at a time"</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Get in touch</a>
+                        <a href="#projects" class="btn btn-outline">View my work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💼</div>
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">☕</div>
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Cups of Coffee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section avec image -->
+    <section id="about" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">Get to know me</span>
+            <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate AI Engineer dedicated to creating intelligent solutions that make a real impact. With expertise in Machine Learning, Deep Learning, and Full Stack Development, I transform complex problems into elegant, scalable systems.</p>
+                <p>My journey in AI began with curiosity about how machines can learn and adapt. Today, I specialize in building predictive models, computer vision applications, and intelligent automation systems.</p>
+                <p>When I'm not coding, you'll find me exploring the latest research papers, contributing to open-source projects, or sharing knowledge with the tech community.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🎯</span>
+                        <div>
+                            <h4>Mission Driven</h4>
+                            <p>Creating AI that augments humanity</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🚀</span>
+                        <div>
+                            <h4>Innovation First</h4>
+                            <p>Always exploring cutting-edge tech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=800&fit=crop" alt="AI Development">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section améliorée -->
+    <section id="skills" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">What I do best</span>
+            <h2>Skills & Expertise</h2>
+        </div>
+        
+        <!-- Catégories de compétences -->
+        <div class="skills-categories">
+            <button class="skill-filter active" data-category="all">All</button>
+            <button class="skill-filter" data-category="ai">AI & ML</button>
+            <button class="skill-filter" data-category="backend">Backend</button>
+            <button class="skill-filter" data-category="frontend">Frontend</button>
+            <button class="skill-filter" data-category="tools">Tools</button>
+        </div>
+
+        <div class="skills-grid">
+            <!-- AI & ML -->
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/python.svg" alt="Python">
+                <span>Python</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 95%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tensorflow.svg" alt="TensorFlow">
+                <span>TensorFlow</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 88%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pytorch.svg" alt="PyTorch">
+                <span>PyTorch</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/scikitlearn.svg" alt="Scikit-learn">
+                <span>Scikit-learn</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 90%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pandas.svg" alt="Pandas">
+                <span>Pandas</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 92%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="ai">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/numpy.svg" alt="NumPy">
+                <span>NumPy</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 90%"></div>
+                </div>
+            </div>
+            
+            <!-- Backend -->
+            <div class="skill-item" data-category="backend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/fastapi.svg" alt="FastAPI">
+                <span>FastAPI</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="backend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/flask.svg" alt="Flask">
+                <span>Flask</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 82%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="backend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/postgresql.svg" alt="PostgreSQL">
+                <span>PostgreSQL</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 80%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="backend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mongodb.svg" alt="MongoDB">
+                <span>MongoDB</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 75%"></div>
+                </div>
+            </div>
+            
+            <!-- Frontend -->
+            <div class="skill-item" data-category="frontend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript">
+                <span>JavaScript</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 88%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="frontend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" alt="React">
+                <span>React</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="frontend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" alt="HTML5">
+                <span>HTML5</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 95%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="frontend">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg" alt="CSS3">
+                <span>CSS3</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 92%"></div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <div class="skill-item" data-category="tools">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/git.svg" alt="Git">
+                <span>Git</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 90%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="tools">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/docker.svg" alt="Docker">
+                <span>Docker</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 80%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="tools">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linux.svg" alt="Linux">
+                <span>Linux</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item" data-category="tools">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/jupyter.svg" alt="Jupyter">
+                <span>Jupyter</span>
+                <div class="skill-level">
+                    <div class="skill-bar" style="--skill-level: 88%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/What I Offer -->
+    <section id="services" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">What I offer</span>
+            <h2>Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <p>Custom ML models, predictive analytics, and intelligent automation solutions tailored to your needs.</p>
+                <ul class="service-features">
+                    <li>Deep Learning Models</li>
+                    <li>Computer Vision</li>
+                    <li>NLP Solutions</li>
+                    <li>Model Deployment</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Full Stack Development</h3>
+                <p>End-to-end web applications with modern technologies and best practices.</p>
+                <ul class="service-features">
+                    <li>RESTful APIs</li>
+                    <li>Database Design</li>
+                    <li>Frontend Development</li>
+                    <li>Cloud Deployment</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data Science & Analytics</h3>
+                <p>Transform raw data into actionable insights with advanced analytics and visualization.</p>
+                <ul class="service-features">
+                    <li>Data Analysis</li>
+                    <li>Visualization</li>
+                    <li>Statistical Modeling</li>
+                    <li>Business Intelligence</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">My journey</span>
+            <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2024 - Present</span>
+                    <h3>AI Engineer - Freelance</h3>
+                    <p class="timeline-company">Self-Employed</p>
+                    <p>Developing custom AI solutions for clients, including predictive models, computer vision applications, and intelligent automation systems. Focus on deploying scalable ML models to production.</p>
+                    <div class="timeline-tags">
+                        <span>Python</span>
+                        <span>TensorFlow</span>
+                        <span>FastAPI</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">July 2024 - August 2024</span>
+                    <h3>AI Development Intern</h3>
+                    <p class="timeline-company">Tech Innovation Lab</p>
+                    <p>Contributed to computer vision projects using TensorFlow and OpenCV. Developed image classification models with 94% accuracy and optimized inference pipeline.</p>
+                    <div class="timeline-tags">
+                        <span>Computer Vision</span>
+                        <span>CNN</span>
+                        <span>OpenCV</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">January 2024 - May 2024</span>
+                    <h3>University Project - Image Classification</h3>
+                    <p class="timeline-company">ESAT-Togo</p>
+                    <p>Led a team project to build an image classification system. Handled data collection, preprocessing, model training with Keras, and deployment. Achieved 91% validation accuracy.</p>
+                    <div class="timeline-tags">
+                        <span>Deep Learning</span>
+                        <span>Keras</span>
+                        <span>Team Lead</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects avec filtres -->
+    <section id="projects" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">My work</span>
+            <h2>Featured Projects</h2>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Projet AeroLink -->
+            <div class="project-card featured">
+                <div class="project-badge">Featured</div>
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop" alt="AeroLink - Aviation Management">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>Full Stack</span>
+                        <span>AI</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <h3>AeroLink Togo</h3>
+                    <p>Intelligent aviation management platform with AI-powered traffic prediction. Built with FastAPI, PostgreSQL with PostGIS, and React.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Prince673-boo/aerolink" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank" class="project-link">
+                            <span>Live Demo</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet Data Analysis -->
+            <div class="project-card">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Data Analysis Dashboard">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Visualization</span>
+                    </div>
+                    <h3>Sales Analytics Dashboard</h3>
+                    <p>Interactive data analysis dashboard with advanced visualizations using Pandas, Matplotlib, and Plotly.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Prince673-boo/data-analysis-intro" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet ML Prediction -->
+            <div class="project-card">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="ML Prediction Model">
+                    <div class="interactive-project" id="regression-container">
+                        <label for="regression-input">Enter square footage:</label>
+                        <input type="number" id="regression-input" placeholder="e.g., 1500">
+                        <button id="regression-button">Predict Price</button>
+                        <p id="regression-result">Result will appear here</p>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>ML</span>
+                        <span>Regression</span>
+                        <span>Scikit-learn</span>
+                    </div>
+                    <h3>House Price Predictor</h3>
+                    <p>Linear regression model to predict house prices based on features. Interactive demo available above.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Prince637-boo/linear-regression-project" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet NLP -->
+            <div class="project-card">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=800&h=600&fit=crop" alt="Text Analysis">
+                    <div class="interactive-project" id="palindrome-container">
+                        <label for="palindrome-input">Enter text:</label>
+                        <input type="text" id="palindrome-input" placeholder="Enter a word...">
+                        <button id="palindrome-button">Check Palindrome</button>
+                        <p id="palindrome-result">Result will appear here</p>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                        <span>Algorithms</span>
+                    </div>
+                    <h3>Text Analyzer</h3>
+                    <p>Text processing tool with palindrome detection and string manipulation algorithms.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Prince673-boo/palindrome-checker" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet Computer Vision -->
+            <div class="project-card">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&h=600&fit=crop" alt="Computer Vision">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>CNN</span>
+                        <span>TensorFlow</span>
+                        <span>OpenCV</span>
+                    </div>
+                    <h3>Object Detection System</h3>
+                    <p>Real-time object detection using YOLO and TensorFlow. Achieved 89% mAP on custom dataset.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet API -->
+            <div class="project-card">
+                <div class="project-media">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop" alt="API Development">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span>FastAPI</span>
+                        <span>REST API</span>
+                        <span>Docker</span>
+                    </div>
+                    <h3>ML Model API</h3>
+                    <p>RESTful API for serving machine learning models with authentication, rate limiting, and monitoring.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link">
+                            <span>View Code</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="hidden">
+        <div class="section-header">
+            <span class="section-tag">What people say</span>
+            <h2>Testimonials</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Issa delivered an exceptional ML model that exceeded our expectations. His expertise in AI and attention to detail are remarkable."</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Client">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <p>CTO, TechCorp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Professional, skilled, and reliable. The predictive analytics solution has transformed our business operations."</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=33" alt="Client">
+                    <div>
+                        <h4>Michael Chen</h4>
+                        <p>CEO, DataFlow Inc</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Outstanding work on our computer vision project. Communication was excellent throughout the entire process."</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/100?img=45" alt="Client">
+                    <div>
+                        <h4>Emma Williams</h4>
+                        <p>Product Manager, VisionAI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="hidden">
+        <div class="contact-wrapper">
+            <div class="contact-content">
+                <span class="section-tag">Let's work together</span>
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or want to discuss AI solutions? I'm always open to new opportunities and collaborations.</p>
+                
+                <div class="contact-methods">
+                    <a href="mailto:i8674333@gmail.com" class="contact-method">
+                        <div class="method-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>i8674333@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="tel:+22893854207" class="contact-method">
+                        <div class="method-icon">📱</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+228 93 85 42 07</p>
+                        </div>
+                    </a>
+                    <a href="#" class="contact-method">
+                        <div class="method-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Lomé, Togo</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/Prince673-boo" target="_blank" title="GitHub">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn">
+                    </a>
+                    <a href="#" target="_blank" title="Twitter">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="#" target="_blank" title="Email">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gmail.svg" alt="Email">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Project inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Send Message
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Issa Prince</h3>
+                <p>AI Engineer crafting intelligent solutions for tomorrow's challenges.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">AI Development</a></li>
+                    <li><a href="#services">Full Stack</a></li>
+                    <li><a href="#services">Data Science</a></li>
+                    <li><a href="#services">Consulting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="footer-social">
+                    <a href="https://github.com/Prince673-boo" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Issa Prince. All rights reserved.</p>
+            <p>Made with 💜 and lots of ☕</p>
+        </div>
+    </footer>
+
+    <!-- Bouton scroll to top -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
