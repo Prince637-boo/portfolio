@@ -113,65 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observer pour les stats
     const statsSection = document.getElementById('stats');
     if (statsSection) {
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !statsAnimated) {
-                    animateStats();
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        statsObserver.observe(statsSection);
     }
-    
-    // ============================================
-    // Skills Filter
-    // ============================================
-    const skillFilters = document.querySelectorAll('.skill-filter');
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    skillFilters.forEach(filter => {
-        filter.addEventListener('click', () => {
-            // Update active filter
-            skillFilters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-            
-            const category = filter.getAttribute('data-category');
-            
-            // Filter skills
-            skillItems.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-                
-                if (category === 'all' || itemCategory === category) {
-                    item.style.display = 'flex';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-    
-    // ============================================
-    // Animate Skills Bars on Scroll
-    // ============================================
-    const skillBars = document.querySelectorAll('.skill-bar');
-    let skillsAnimated = false;
-    
-    const animateSkillBars = () => {
-        skillBars.forEach(bar => {
-            const level = bar.style.getPropertyValue('--skill-level');
-            bar.style.width = level;
-        });
-        skillsAnimated = true;
-    };
     
     const skillsSection = document.getElementById('skills');
     if (skillsSection) {
@@ -184,6 +126,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.3 });
         
         skillsObserver.observe(skillsSection);
+    }
+    
+    // Observer pour les stats
+    if (statsSection) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+        statsObserver.observe(statsSection);
     }
     
     // ============================================
@@ -694,4 +648,138 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('%c✨ Portfolio loaded successfully!', 'color: #10b981; font-size: 14px; font-weight: bold;');
     
+    // ============================================
+    // Mobile Specific Interactions
+    // ============================================
+    if (window.innerWidth <= 767) {
+        // --- Experience Accordion ---
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            // Wrap content for accordion
+            const content = item.querySelector('.timeline-content');
+            const headerContent = content.querySelector('.timeline-date, h3, .timeline-company');
+            
+            const header = document.createElement('div');
+            header.className = 'timeline-header';
+            
+            const details = document.createElement('div');
+            details.className = 'timeline-details';
+            
+            const detailsInner = document.createElement('div');
+            detailsInner.className = 'timeline-details-inner';
+
+            // Move elements
+            header.append(content.querySelector('.timeline-date'), content.querySelector('h3'), content.querySelector('.timeline-company'));
+            detailsInner.append(content.querySelector('p'), content.querySelector('.timeline-tags'));
+            details.append(detailsInner);
+            content.prepend(header);
+            content.append(details);
+
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                timelineItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.timeline-details').style.maxHeight = '0px';
+                });
+
+                // Open the clicked one if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                }
+            });
+        });
+
+    }
+
+    // ============================================
+    // Skills Bubble Cloud (Unified for Desktop & Mobile)
+    // ============================================
+    const skillsContainer = document.querySelector('.skills-bubbles-container');
+    if (skillsContainer) {
+        const bubbles = Array.from(skillsContainer.querySelectorAll('.skill-bubble'));
+        
+        // Attendre que le conteneur soit bien dimensionné
+        setTimeout(() => {
+            const containerRect = skillsContainer.getBoundingClientRect();
+            const centerX = containerRect.width / 2;
+            const centerY = containerRect.height / 2;
+
+            let mouse = { x: null, y: null };
+
+            bubbles.forEach((bubble) => {
+                const angle = Math.random() * 2 * Math.PI;
+                const radius = Math.random() * (containerRect.width / 4) + (containerRect.width / 5);
+                bubble.x = centerX + Math.cos(angle) * radius;
+                bubble.y = centerY + Math.sin(angle) * radius;
+                bubble.vx = (Math.random() - 0.5) * 0.5; // Vitesse initiale aléatoire
+                bubble.vy = (Math.random() - 0.5) * 0.5;
+                bubble.radius = bubble.offsetWidth / 2;
+            });
+
+            function update() {
+                bubbles.forEach(bubble => {
+                    // Attraction vers le centre
+                    let dxToCenter = centerX - bubble.x;
+                    let dyToCenter = centerY - bubble.y;
+                    bubble.vx += dxToCenter * 0.0001; // Force d'attraction réduite de moitié
+                    bubble.vy += dyToCenter * 0.0001;
+
+                    // Répulsion par les autres bulles
+                    bubbles.forEach(other => {
+                        if (bubble === other) return;
+                        let dx = other.x - bubble.x;
+                        let dy = other.y - bubble.y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+                        let minDist = bubble.radius + other.radius + 15; // +15 pour un peu d'espace
+                        if (dist < minDist) {
+                            let angle = Math.atan2(dy, dx);
+                            let force = (minDist - dist) * 0.01; // Force de répulsion réduite
+                            bubble.vx -= Math.cos(angle) * force;
+                            bubble.vy -= Math.sin(angle) * force;
+                        }
+                    });
+
+                    // Répulsion par la souris
+                    if (mouse.x !== null) {
+                        let dxMouse = mouse.x - bubble.x;
+                        let dyMouse = mouse.y - bubble.y;
+                        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                        let pushRadius = 120;
+                        if (distMouse < pushRadius) {
+                            let angle = Math.atan2(dyMouse, dxMouse);
+                            let force = (pushRadius - distMouse) * 0.02; // Force de la souris fortement réduite
+                            bubble.vx -= Math.cos(angle) * force;
+                            bubble.vy -= Math.sin(angle) * force;
+                        }
+                    }
+
+                    // Friction et mouvement
+                    bubble.vx *= 0.96;
+                    bubble.vy *= 0.96;
+                    bubble.x += bubble.vx;
+                    bubble.y += bubble.vy;
+
+                    bubble.style.transform = `translate(${bubble.x - bubble.radius}px, ${bubble.y - bubble.radius}px)`;
+                });
+
+                requestAnimationFrame(update);
+            }
+
+            skillsContainer.addEventListener('pointermove', (e) => {
+                const rect = skillsContainer.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            skillsContainer.addEventListener('pointerleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            update();
+        }, 100); // Léger délai pour s'assurer que tout est chargé
+    }
 });
