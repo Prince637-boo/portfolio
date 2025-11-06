@@ -1595,25 +1595,25 @@ footer {
         padding-top: 0;
     }
 
-    /* --- Section About Me Responsive --- */
+    /* --- Section About Me Mobile --- */
     .about-content {
-        /* On revient à une grille simple, mais verticale */
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+        display: grid;
+        grid-template-columns: 1fr; /* Une seule colonne pour la structure principale */
+        gap: var(--spacing-lg);
     }
     .about-text {
-        /* Le texte prend toute la largeur */
-        text-align: center;
+        text-align: left; /* Meilleure lisibilité */
+        grid-row: 2; /* Le texte passe en deuxième position */
     }
     .about-image {
-        /* L'image est centrée et bien présentée */
-        max-width: 300px;
-        margin: 0 auto; /* Centrage horizontal */
+        max-width: 100%;
+        grid-row: 1; /* L'image passe en première position */
     }
     .about-image .image-wrapper {
-        border: 1px solid var(--border-color); /* On garde la bordure soignée */
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Ombre plus prononcée */
-        aspect-ratio: 1 / 1; /* On la rend carrée pour un look de profil */
+        aspect-ratio: 16/9; /* Ratio standard pour les images */
+    }
+    .about-highlights {
+        grid-template-columns: 1fr 1fr; /* Les points forts sur deux colonnes */
     }
 
     .honeycomb-cell {
