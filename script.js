@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     // 1. Header Scroll Effect (Shrink)
     // ============================================
     const header = document.getElementById('header');
