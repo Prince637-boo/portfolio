@@ -1,651 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Issa Prince - AI Engineer & Full Stack Developer</title>
-    <meta name="description" content="AI Engineer passionate about Machine Learning, Deep Learning, and building intelligent solutions.">
-    <link rel="icon" type="image/svg+xml" href="https://icon-sets.net/icons/simple-line/24/24/brain-1.svg">
-    <link rel="preload" href="fonts/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <title>Issa Prince - AI Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Issa Prince, an AI Engineer & Full-Stack Developer specializing in intelligent solutions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation fixe moderne -->
-    <nav id="navbar">
+    <!-- Header & Navigation -->
+    <header id="header">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">IP</a>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="#hero" class="nav-logo">Issa Prince</a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
+                <div class="hamburger"></div>
             </button>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="hero">
-        <div class="hero-content">
-            <div class="hero-intro">
-                <div class="profile-picture-container">
-                    <img src="image/ai_images.png" alt="Issa Prince - AI Engineer" class="profile-picture">
-                    <div class="status-badge">
-                        <span class="status-dot"></span>
-                        Available for work
-                    </div>
-                </div>
-                <div class="hero-text">
-                    <p class="hero-greeting">👋 Hello, I'm</p>
-                    <h1>Issa Prince</h1>
-                    <p class="hero-title">AI Engineer & Full Stack Developer</p>
-                    <p class="quote">"Building the future, one algorithm at a time"</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">Get in touch</a>
-                        <a href="#projects" class="btn btn-outline">View my work</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
         </div>
     </header>
 
-    <!-- Stats Section -->
-    <section id="stats">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">🎓</div>
-                <div class="stat-number" data-target="2">0</div>
-                <div class="stat-label">Years Experience</div>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-image-wrapper animate-in">
+                    <img src="image/ai_images.png" alt="Issa Prince" class="hero-image">
+                </div>
+                <div class="hero-content animate-in">
+                    <h1 class="hero-title">Issa Prince</h1>
+                    <h2 class="hero-subtitle">AI Engineer & Full-Stack Developer</h2>
+                    <p class="hero-description">
+                        Passionate about creating intelligent solutions that make a real impact. I transform complex problems into elegant, scalable systems.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/path/to/your/cv.pdf" class="btn btn-primary" download>Download CV</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://github.com/Prince637-boo" target="_blank" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">💼</div>
-                <div class="stat-number" data-target="2">0</div>
-                <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">🏆</div>
-                <div class="stat-number" data-target="0">0</div>
-                <div class="stat-label">Certifications</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">☕</div>
-                <div class="stat-number" data-target="1000">0</div>
-                <div class="stat-label">Cups of Coffee</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section avec image -->
-    <section id="about" class="hidden">
-        <div class="section-header">
-            <span class="section-tag">Get to know me</span>
-            <h2>About Me</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a passionate AI Engineer dedicated to creating intelligent solutions that make a real impact. With expertise in Machine Learning, Deep Learning, and Full Stack Development, I transform complex problems into elegant, scalable systems.</p>
-                <p>My journey in AI began with curiosity about how machines can learn and adapt. Today, I specialize in building predictive models, computer vision applications, and intelligent automation systems.</p>
-                <p>When I'm not coding, you'll find me exploring the latest research papers, contributing to open-source projects, or sharing knowledge with the tech community.</p>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-icon">🎯</span>
-                        <div>
-                            <h4>Mission Driven</h4>
-                            <p>Creating AI that augments humanity</p>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <div class="about-image-wrapper animate-on-scroll">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Illustration IA" class="about-image">
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <h2 class="section-title">About Me</h2>
+                    <p>My journey in AI began with a curiosity about how machines can learn and adapt. Today, I specialize in building predictive models, computer vision applications, and intelligent automation systems.</p>
+                    <p>When I'm not coding, you'll find me exploring the latest research papers, contributing to open-source projects, or sharing knowledge with the tech community.</p>
+                    <h3 class="skills-title">My Skills</h3>
+                    <div class="skills-marquee" aria-hidden="true">
+                        <div class="marquee-content">
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"> Python</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/tensorflow/ffffff" alt="TensorFlow"> TensorFlow</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/pytorch/ffffff" alt="PyTorch"> PyTorch</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/scikitlearn/ffffff" alt="Scikit-learn"> Scikit-learn</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/fastapi/ffffff" alt="FastAPI"> FastAPI</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/react/ffffff" alt="React"> React</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker"> Docker</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL"> PostgreSQL</div>
+                            <!-- Duplicated for seamless loop -->
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"> Python</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/tensorflow/ffffff" alt="TensorFlow"> TensorFlow</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/pytorch/ffffff" alt="PyTorch"> PyTorch</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/scikitlearn/ffffff" alt="Scikit-learn"> Scikit-learn</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/fastapi/ffffff" alt="FastAPI"> FastAPI</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/react/ffffff" alt="React"> React</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker"> Docker</div>
+                            <div class="skill-item"><img src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL"> PostgreSQL</div>
                         </div>
                     </div>
-                    <div class="highlight-item">
-                        <span class="highlight-icon">🚀</span>
-                        <div>
-                            <h4>Innovation First</h4>
-                            <p>Always exploring cutting-edge tech</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Projet 1: AeroLink Togo -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop" alt="AeroLink Project" class="project-image">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">AeroLink Togo</h3>
+                            <p class="project-stack">Full Stack / AI / PostgreSQL</p>
+                            <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="project-visit-link">Visit →</a>
+                        </div>
+                    </div>
+                    <!-- Projet 2: Social Network -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=600&fit=crop" alt="Social Network Project" class="project-image">
+                            <div class="project-overlay">
+                                <a href="#" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Social Network "ConnectSphere"</h3>
+                            <p class="project-stack">Full Stack / FastAPI / React</p>
+                            <a href="#" target="_blank" class="project-visit-link">Visit →</a>
+                        </div>
+                    </div>
+                    <!-- Projet 3: Cancer Prediction -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop" alt="Cancer Prediction Project" class="project-image">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Breast Cancer Prediction</h3>
+                            <p class="project-stack">Machine Learning / Scikit-learn</p>
+                            <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="project-visit-link">Visit →</a>
+                        </div>
+                    </div>
+                    <!-- Projet 4: Weather Prediction -->
+                    <div class="project-card animate-on-scroll">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop" alt="Weather Prediction Project" class="project-image">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Advanced Weather Prediction</h3>
+                            <p class="project-stack">AI / Deep Learning / Time Series</p>
+                            <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="project-visit-link">Visit →</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="about-image">
-                <div class="image-wrapper">
-                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Stylized neural network brain representing AI">
-                    <div class="image-overlay"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section améliorée -->
-    <section id="skills" class="hidden skills-section">
-        <div class="section-header">
-            <span class="section-tag">What I do best</span>
-            <h2>Skills & Expertise</h2>
-        </div>
-        
-        <div class="honeycomb-grid">
-            <!-- AI & ML -->
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/python.svg" alt="Python">
-                <span>Python</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tensorflow.svg" alt="TensorFlow">
-                <span>TensorFlow</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pytorch.svg" alt="PyTorch">
-                <span>PyTorch</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/scikitlearn.svg" alt="Scikit-learn">
-                <span>Scikit-learn</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pandas.svg" alt="Pandas">
-                <span>Pandas</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/numpy.svg" alt="NumPy">
-                <span>NumPy</span>
-            </div>
-            
-            <!-- Backend -->
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/fastapi.svg" alt="FastAPI">
-                <span>FastAPI</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/flask.svg" alt="Flask">
-                <span>Flask</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/postgresql.svg" alt="PostgreSQL">
-                <span>PostgreSQL</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mongodb.svg" alt="MongoDB">
-                <span>MongoDB</span>
-            </div>
-            
-            <!-- Frontend -->
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/javascript.svg" alt="JavaScript">
-                <span>JavaScript</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/react.svg" alt="React">
-                <span>React</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/html5.svg" alt="HTML5">
-                <span>HTML5</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/css3.svg" alt="CSS3">
-                <span>CSS3</span>
-            </div>
-            
-            <!-- Tools -->
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/git.svg" alt="Git">
-                <span>Git</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/docker.svg" alt="Docker">
-                <span>Docker</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linux.svg" alt="Linux">
-                <span>Linux</span>
-            </div>
-            <div class="honeycomb-cell">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/jupyter.svg" alt="Jupyter">
-                <span>Jupyter</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services/What I Offer -->
-    <section id="services" class="hidden">
-        <div class="section-header">
-            <span class="section-tag">What I offer</span>
-            <h2>Services</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🤖</div>
-                <h3>AI & Machine Learning</h3>
-                <p>Custom ML models, predictive analytics, and intelligent automation solutions tailored to your needs.</p>
-                <ul class="service-features">
-                    <li>Deep Learning Models</li>
-                    <li>Computer Vision</li>
-                    <li>NLP Solutions</li>
-                    <li>Model Deployment</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>Full Stack Development</h3>
-                <p>End-to-end web applications with modern technologies and best practices.</p>
-                <ul class="service-features">
-                    <li>RESTful APIs</li>
-                    <li>Database Design</li>
-                    <li>Frontend Development</li>
-                    <li>Cloud Deployment</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Data Science & Analytics</h3>
-                <p>Transform raw data into actionable insights with advanced analytics and visualization.</p>
-                <ul class="service-features">
-                    <li>Data Analysis</li>
-                    <li>Visualization</li>
-                    <li>Statistical Modeling</li>
-                    <li>Business Intelligence</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline -->
-    <section id="experience" class="hidden">
-        <div class="section-header">
-            <span class="section-tag">My journey</span>
-            <h2>Experience</h2>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2025 - Present</span>
-                    <h3>Integrated Engineering Preparatory School</h3>
-                    <p class="timeline-company">Engineering Preparatory Cycle</p>
-                    <p>Acquiring a solid foundation in advanced mathematics, physics, and computer science, preparing for the engineering cycle with a focus on complex problem-solving.</p>
-                    <div class="timeline-tags">
-                        <span>Engineering</span>
-                        <span>Mathematics</span>
-                        <span>Physics</span>
-                        <span>Computer Science</span>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2023 - Présent</span>
-                    <h3>Self-Taught in AI & Development</h3>
-                    <p class="timeline-company">Personal Projects & Continuous Learning</p>
-                    <p>Actively developing skills in Artificial Intelligence and Full Stack development. Creating concrete projects ranging from Machine Learning models to complete web applications.</p>
-                    <div class="timeline-tags">
-                        <span>IA</span>
-                        <span>Machine Learning</span>
-                        <span>Full Stack</span>
-                        <span>Projects</span>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2024 - Présent</span>
-                    <h3>Academic Background - Mathematics</h3>
-                    <p class="timeline-company">Academic Training</p>
-                    <p>Curriculum focused on mathematics, developing strong analytical, logical, and abstract reasoning skills, which are fundamental for engineering and artificial intelligence.</p>
-                    <div class="timeline-tags">
-                        <span>Mathematics</span>
-                        <span>Logic</span>
-                        <span>Analysis</span>
-                        <span>Science</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects avec filtres -->
-    <section id="projects" class="hidden">
-        <div class="section-header">
-            <span class="section-tag">My work</span>
-            <h2>My Projects</h2>
-        </div>
-        
-        <!-- Projets Réalisés -->
-        <h3 class="project-subsection-title">Completed Projects</h3>
-        <div class="projects-grid">
-            <!-- Projet Réseau Social -->
-            <div class="project-card">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=600&fit=crop" alt="Social Network Project">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>Full Stack</span>
-                        <span>FastAPI</span>
-                        <span>React</span>
-                    </div>
-                    <h3>Social Network "ConnectSphere"</h3>
-                    <p>A social network clone inspired by Facebook and Twitter, with features like posts, likes, comments, and real-time messaging.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet Prédiction Cancer -->
-            <div class="project-card">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop" alt="Breast Cancer Prediction">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>Machine Learning</span>
-                        <span>Scikit-learn</span>
-                        <span>Python</span>
-                    </div>
-                    <h3>Breast Cancer Prediction Model</h3>
-                    <p>A machine learning model to predict breast cancer from diagnostic data, achieving high accuracy and recall for early detection.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet Météo -->
-            <div class="project-card">
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop" alt="Weather Prediction AI">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>AI</span>
-                        <span>Deep Learning</span>
-                        <span>Time Series</span>
-                    </div>
-                    <h3>Advanced Weather Prediction AI</h3>
-                    <p>An advanced AI for weather forecasting, utilizing cutting-edge technologies to provide highly accurate, real-time meteorological predictions.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Projets à Venir -->
-        <h3 class="project-subsection-title">Upcoming Projects</h3>
-        <div class="projects-grid">
-            <!-- Projet AeroLink -->
-            <div class="project-card coming-soon">
-                <div class="project-badge">À venir</div>
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop" alt="AeroLink - Aviation Management">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>Full Stack</span>
-                        <span>AI</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <h3>AeroLink Togo</h3>
-                    <p>Intelligent aviation management platform with AI-powered traffic prediction. Built with FastAPI, PostgreSQL with PostGIS, and React.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" class="project-link">
-                            <span>Live Demo</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet Gestion Universitaire -->
-            <div class="project-card coming-soon">
-                <div class="project-badge">À venir</div>
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop" alt="AI School Management System">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>Full Stack</span>
-                        <span>AI Automation</span>
-                        <span>React</span>
-                    </div>
-                    <h3>AI University Management System</h3>
-                    <p>A comprehensive platform to automate the management of registrations, grades, schedules, and university resources using AI.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projet Détection Maladies -->
-            <div class="project-card coming-soon">
-                <div class="project-badge">À venir</div>
-                <div class="project-media">
-                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=600&fit=crop" alt="Medical Imaging AI">
-                </div>
-                <div class="project-content">
-                    <div class="project-tags">
-                        <span>Computer Vision</span>
-                        <span>Deep Learning</span>
-                        <span>TensorFlow</span>
-                    </div>
-                    <h3>Disease Detection from Imagery</h3>
-                    <p>A Deep Learning model to detect and classify diseases from medical images, aiding in early diagnosis.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link">
-                            <span>View Code</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="hidden">
-        <div class="section-header">
-            <span class="section-tag">What people say</span>
-            <h2>Testimonials</h2>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Issa delivered an exceptional ML model that exceeded our expectations. His expertise in AI and attention to detail are remarkable."</p>
-                <div class="testimonial-author">
-                    <img src="https://i.pravatar.cc/100?img=12" alt="Client">
-                    <div>
-                        <h4>Sarah Johnson</h4>
-                        <p>CTO, TechCorp</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Professional, skilled, and reliable. The predictive analytics solution has transformed our business operations."</p>
-                <div class="testimonial-author">
-                    <img src="https://i.pravatar.cc/100?img=33" alt="Client">
-                    <div>
-                        <h4>Michael Chen</h4>
-                        <p>CEO, DataFlow Inc</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Outstanding work on our computer vision project. Communication was excellent throughout the entire process."</p>
-                <div class="testimonial-author">
-                    <img src="https://i.pravatar.cc/100?img=45" alt="Client">
-                    <div>
-                        <h4>Emma Williams</h4>
-                        <p>Product Manager, VisionAI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section id="contact" class="hidden">
-        <div class="contact-wrapper">
-            <div class="contact-content">
-                <span class="section-tag">Let's work together</span>
-                <h2>Get In Touch</h2>
-                <p>Have a project in mind or want to discuss AI solutions? I'm always open to new opportunities and collaborations.</p>
-                
-                <div class="contact-methods">
-                    <a href="mailto:i8674333@gmail.com" class="contact-method">
-                        <div class="method-icon">📧</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>i8674333@gmail.com</p>
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">From the Blog</h2>
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop" alt="Blog post image" class="blog-image">
+                        <div class="blog-content">
+                            <p class="blog-date">October 26, 2023</p>
+                            <h3 class="blog-title">Deploying an ML Model with FastAPI & Docker</h3>
+                            <p class="blog-excerpt">A step-by-step guide to robustly and scalably putting your Machine Learning models into production.</p>
+                            <a href="#" class="blog-read-more">Read more →</a>
                         </div>
-                    </a>
-                    <a href="tel:+22893854207" class="contact-method">
-                        <div class="method-icon">📱</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+228 93 85 42 07</p>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop" alt="Blog post image" class="blog-image">
+                        <div class="blog-content">
+                            <p class="blog-date">September 15, 2023</p>
+                            <h3 class="blog-title">React Hooks Every Developer Should Know</h3>
+                            <p class="blog-excerpt">Beyond useState and useEffect, discover hooks that will simplify your code and improve your performance.</p>
+                            <a href="#" class="blog-read-more">Read more →</a>
                         </div>
-                    </a>
-                    <a href="#" class="contact-method">
-                        <div class="method-icon">📍</div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Lomé, Togo</p>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://picsum.photos/800/500?random=3" alt="Blog post image" class="blog-image">
+                        <div class="blog-content">
+                            <p class="blog-date">August 02, 2023</p>
+                            <h3 class="blog-title">Introduction to Attention in Transformers</h3>
+                            <p class="blog-excerpt">Dive into the heart of the mechanism that revolutionized natural language processing and is the basis of models like GPT.</p>
+                            <a href="#" class="blog-read-more">Read more →</a>
                         </div>
-                    </a>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://github.com/Prince673-boo" target="_blank" title="GitHub">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub">
-                    </a>
-                    <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn">
-                    </a>
-                    <a href="#" target="_blank" title="Twitter">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/twitter.svg" alt="Twitter">
-                    </a>
-                    <a href="#" target="_blank" title="Email">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gmail.svg" alt="Email">
-                    </a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="contact-form-wrapper">
-                <form class="contact-form" id="contactForm">
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container contact-container">
+                <div class="contact-content animate-on-scroll">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p>Have a project idea? A question? Or just want to talk about AI and technology? Feel free to send me a message.</p>
+                </div>
+                <form id="contact-form" class="contact-form animate-on-scroll">
                     <div class="form-group">
+                        <input type="text" id="name" name="name" required>
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
                     </div>
                     <div class="form-group">
+                        <input type="email" id="email" name="email" required>
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required placeholder="Project inquiry">
-                    </div>
-                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">
-                        Send Message
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </button>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Issa Prince</h3>
-                <p>AI Engineer crafting intelligent solutions for tomorrow's challenges.</p>
+    <footer class="footer">
+        <div class="footer-divider"></div>
+        <div class="container footer-container">
+            <div class="social-links">
+                <a href="https://github.com/Prince637-boo" target="_blank" aria-label="GitHub">
+                    <!-- SVG for GitHub Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" aria-label="LinkedIn">
+                    <!-- SVG for LinkedIn Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Twitter">
+                    <!-- SVG for Twitter Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                </a>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#services">AI Development</a></li>
-                    <li><a href="#services">Full Stack</a></li>
-                    <li><a href="#services">Data Science</a></li>
-                    <li><a href="#services">Consulting</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <div class="footer-social">
-                    <a href="https://github.com/Prince673-boo" target="_blank">GitHub</a>
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Twitter</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Issa Prince. All rights reserved.</p>
-            <p>Made with 💜 and lots of ☕</p>
+            <p class="footer-text">&copy; <span id="current-year"></span> Issa Prince. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Bouton scroll to top -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2"/>
-        </svg>
-    </button>
-
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
