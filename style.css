@@ -725,6 +725,7 @@ a {
         gap: var(--spacing-lg);
         transform: translateX(100%);
         transition: transform var(--transition-medium);
+        z-index: 999; /* S'assure que le menu est au-dessus du contenu */
     }
 
     .nav-menu.is-open {
