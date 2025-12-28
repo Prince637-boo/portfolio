@@ -9,24 +9,26 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!-- Note: The new design uses a system font stack, so Google Fonts are not strictly necessary but I love that. -->
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header id="header">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">Issa Prince</a>
-            <nav class="nav-menu">
+    <header id="header-nav">
+        <div class="nav-wrapper">
+            <a href="#hero" class="logo">Issa Prince</a>
+            <nav id="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#projects" class="nav-link">Projects</a>
-                <a href="#blog" class="nav-link">Blog</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
-                <div class="hamburger"></div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </header>
@@ -35,64 +37,57 @@
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="container hero-container">
-                <div class="hero-content animate-in">
-                    <h1 class="hero-title">Issa Prince</h1>
-                    <h2 class="hero-subtitle">AI Engineer & Full-Stack Developer</h2>
+                <div class="hero-text fade-in">
+                    <h1>Creative AI Engineer</h1>
+                    <h2>Full-Stack Developer</h2>
                     <p class="hero-description">
-                        Passionate about creating intelligent solutions that make a real impact. I transform complex problems into elegant, scalable systems.
+                        Building intelligent solutions that transform complex challenges into elegant, scalable systems. Specializing in AI, machine learning, and modern web development.
                     </p>
                     <div class="hero-buttons">
-                        <a href="/path/to/your/cv.pdf" class="btn btn-primary" download>Download CV</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
                     </div>
-                    <div class="hero-socials">
-                        <a href="https://github.com/Prince637-boo" target="_blank" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <div class="socials">
+                        <a href="https://github.com/Prince637-boo" target="_blank" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
-                        <a href="#" target="_blank" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        <a href="#" target="_blank" title="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                         </a>
                     </div>
                 </div>
-                <div class="hero-image-wrapper animate-in">
-                    <img src="image/ai_images.png" alt="Issa Prince" class="hero-image">
+                <div class="hero-image-container fade-in">
+                    <div class="image-frame">
+                        <img src="image/ai_images.png" alt="Issa Prince">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container about-container">
-                <div class="about-image-wrapper animate-on-scroll">
-                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Illustration IA" class="about-image">
+        <section class="section" id="about">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Development">
                 </div>
-                <div class="about-content animate-on-scroll">
+                <div class="fade-in">
                     <h2 class="section-title">About Me</h2>
-                    <p>My journey in AI began with a curiosity about how machines can learn and adapt. Today, I specialize in building predictive models, computer vision applications, and intelligent automation systems.</p>
-                    <p>When I'm not coding, you'll find me exploring the latest research papers, contributing to open-source projects, or sharing knowledge with the tech community.</p>
-                    <h3 class="skills-title">My Skills</h3>
-                    <div class="skills-marquee" aria-hidden="true">
-                        <div class="marquee-content">
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"> Python</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/tensorflow/ffffff" alt="TensorFlow"> TensorFlow</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/pytorch/ffffff" alt="PyTorch"> PyTorch</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/scikitlearn/ffffff" alt="Scikit-learn"> Scikit-learn</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/fastapi/ffffff" alt="FastAPI"> FastAPI</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/react/ffffff" alt="React"> React</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker"> Docker</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL"> PostgreSQL</div>
-                            <!-- Duplicated for seamless loop -->
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/python/ffffff" alt="Python"> Python</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/tensorflow/ffffff" alt="TensorFlow"> TensorFlow</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/pytorch/ffffff" alt="PyTorch"> PyTorch</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/scikitlearn/ffffff" alt="Scikit-learn"> Scikit-learn</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/fastapi/ffffff" alt="FastAPI"> FastAPI</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/react/ffffff" alt="React"> React</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/docker/ffffff" alt="Docker"> Docker</div>
-                            <div class="skill-item"><img src="https://cdn.simpleicons.org/postgresql/ffffff" alt="PostgreSQL"> PostgreSQL</div>
+                    <p>With a passion for cutting-edge technology, I specialize in building predictive models, computer vision applications, and intelligent automation systems that solve real-world problems.</p>
+                    <p>I thrive at the intersection of AI and beautiful design, creating seamless experiences that are both powerful and intuitive. When I'm not coding, you'll find me exploring research papers or contributing to open-source communities.</p>
+                    <div class="skills-container">
+                        <h3 class="skills-title">Tech Stack</h3>
+                        <div class="skills-grid">
+                            <div class="skill-tag">Python</div>
+                            <div class="skill-tag">TensorFlow</div>
+                            <div class="skill-tag">PyTorch</div>
+                            <div class="skill-tag">FastAPI</div>
+                            <div class="skill-tag">React</div>
+                            <div class="skill-tag">Docker</div>
+                            <div class="skill-tag">PostgreSQL</div>
+                            <div class="skill-tag">AWS</div>
                         </div>
                     </div>
                 </div>
@@ -100,155 +95,67 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">My Projects</h2>
-                <div class="projects-grid">
-                    <!-- Projet 1: AeroLink Togo -->
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop" alt="AeroLink Project" class="project-image">
-                            <div class="project-overlay">
-                                <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">AeroLink Togo</h3>
-                            <p class="project-stack">Full Stack / AI / PostgreSQL</p>
-                            <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="project-visit-link">Visit →</a>
-                        </div>
-                    </div>
-                    <!-- Projet 2: Social Network -->
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=600&fit=crop" alt="Social Network Project" class="project-image">
-                            <div class="project-overlay">
-                                <a href="#" target="_blank" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Social Network "ConnectSphere"</h3>
-                            <p class="project-stack">Full Stack / FastAPI / React</p>
-                            <a href="#" target="_blank" class="project-visit-link">Visit →</a>
-                        </div>
-                    </div>
-                    <!-- Projet 3: Cancer Prediction -->
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop" alt="Cancer Prediction Project" class="project-image">
-                            <div class="project-overlay">
-                                <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Breast Cancer Prediction</h3>
-                            <p class="project-stack">Machine Learning / Scikit-learn</p>
-                            <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="project-visit-link">Visit →</a>
-                        </div>
-                    </div>
-                    <!-- Projet 4: Weather Prediction -->
-                    <div class="project-card animate-on-scroll">
-                        <div class="project-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop" alt="Weather Prediction Project" class="project-image">
-                            <div class="project-overlay">
-                                <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Advanced Weather Prediction</h3>
-                            <p class="project-stack">AI / Deep Learning / Time Series</p>
-                            <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="project-visit-link">Visit →</a>
-                        </div>
+        <section class="section projects-section" id="projects">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img class="project-image" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop" alt="AeroLink">
+                    <div class="project-info">
+                        <h3 class="project-title">AeroLink Togo</h3>
+                        <p class="project-stack">Full Stack • AI • PostgreSQL</p>
+                        <p class="project-description">Flight booking and management platform with intelligent recommendation system.</p>
+                        <a href="https://github.com/Prince637-boo/AeroLink.git" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Blog Section -->
-        <section id="blog" class="blog-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">From the Blog</h2>
-                <div class="blog-grid">
-                    <!-- Blog Post 1 -->
-                    <div class="blog-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop" alt="Blog post image" class="blog-image">
-                        <div class="blog-content">
-                            <p class="blog-date">October 26, 2023</p>
-                            <h3 class="blog-title">Deploying an ML Model with FastAPI & Docker</h3>
-                            <p class="blog-excerpt">A step-by-step guide to robustly and scalably putting your Machine Learning models into production.</p>
-                            <a href="#" class="blog-read-more">Read more →</a>
-                        </div>
+                <div class="project-card fade-in">
+                    <img class="project-image" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=600&fit=crop" alt="ConnectSphere">
+                    <div class="project-info">
+                        <h3 class="project-title">ConnectSphere</h3>
+                        <p class="project-stack">FastAPI • React • Real-time</p>
+                        <p class="project-description">Social network platform with real-time messaging and intelligent feed personalization.</p>
+                        <a href="#" class="project-link">View Project →</a>
                     </div>
-                    <!-- Blog Post 2 -->
-                    <div class="blog-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop" alt="Blog post image" class="blog-image">
-                        <div class="blog-content">
-                            <p class="blog-date">September 15, 2023</p>
-                            <h3 class="blog-title">React Hooks Every Developer Should Know</h3>
-                            <p class="blog-excerpt">Beyond useState and useEffect, discover hooks that will simplify your code and improve your performance.</p>
-                            <a href="#" class="blog-read-more">Read more →</a>
-                        </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <img class="project-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop" alt="Cancer Prediction">
+                    <div class="project-info">
+                        <h3 class="project-title">Cancer Detection AI</h3>
+                        <p class="project-stack">Machine Learning • Scikit-learn</p>
+                        <p class="project-description">Deep learning model for early breast cancer detection with 98% accuracy.</p>
+                        <a href="https://github.com/Prince637-boo/cancerDetection.git" target="_blank" class="project-link">View Project →</a>
                     </div>
-                    <!-- Blog Post 3 -->
-                    <div class="blog-card animate-on-scroll">
-                        <img src="https://picsum.photos/seed/transformers/800/500" alt="Blog post image" class="blog-image">
-                        <div class="blog-content">
-                            <p class="blog-date">August 02, 2023</p>
-                            <h3 class="blog-title">Introduction to Attention in Transformers</h3>
-                            <p class="blog-excerpt">Dive into the heart of the mechanism that revolutionized natural language processing and is the basis of models like GPT.</p>
-                            <a href="#" class="blog-read-more">Read more →</a>
-                        </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <img class="project-image" src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop" alt="Weather">
+                    <div class="project-info">
+                        <h3 class="project-title">Weather Prediction</h3>
+                        <p class="project-stack">Deep Learning • Time Series</p>
+                        <p class="project-description">Advanced forecasting using GraphCast for accurate weather predictions.</p>
+                        <a href="https://github.com/Prince637-boo/graphcast_project.git" target="_blank" class="project-link">View Project →</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container contact-container">
-                <div class="contact-content animate-on-scroll">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p>Have a project idea? A question? Or just want to talk about AI and technology? Feel free to send me a message.</p>
+        <section class="contact-section" id="contact">
+            <div class="contact-content fade-in">
+                <h2 class="section-title">Let's Create Something Amazing</h2>
+                <p class="contact-description">Have a project in mind? Whether it's a complex AI solution or a beautiful web application, I'm ready to bring your vision to life.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:your-email@example.com" class="btn btn-primary">Send Me an Email</a>
+                    <a href="#" class="btn btn-secondary">Schedule a Call</a>
                 </div>
-                <form id="contact-form" class="contact-form animate-on-scroll">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <label for="message">Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-divider"></div>
-        <div class="container footer-container">
-            <div class="social-links">
-                <a href="https://github.com/Prince637-boo" target="_blank" aria-label="GitHub">
-                    <!-- SVG for GitHub Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" aria-label="LinkedIn">
-                    <!-- SVG for LinkedIn Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="#" target="_blank" aria-label="Twitter">
-                    <!-- SVG for Twitter Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
-            </div>
-            <p class="footer-text">&copy; <span id="current-year"></span> Issa Prince. All rights reserved.</p>
-        </div>
+        <p>&copy; <span id="year"></span> Issa Prince. All rights reserved. • Built with creativity & code.</p>
     </footer>
 
     <!-- JavaScript -->
