@@ -1,69 +1,64 @@
+// Gestion du menu mobile et de la navigation
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current year
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const headerNav = document.getElementById('header-nav');
+    
+    // Menu toggle pour mobile
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
             navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
     }
-
-    // Close menu on link click
-    if (navMenu) {
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+    
+    // Fermer le menu quand on clique sur un lien
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (navMenu.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
-            });
+                document.body.style.overflow = '';
+            }
+            
+            // Mettre à jour la classe active
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
         });
-    }
-
-    // Header scroll effect
-    const header = document.getElementById('header-nav');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-    }
-
-    // Active link highlighting
-    const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        let current = 'hero';
+    });
+    
+    // Effet de scroll sur le header
+    function handleScroll() {
+        if (window.scrollY > 50) {
+            headerNav.classList.add('scrolled');
+        } else {
+            headerNav.classList.remove('scrolled');
+        }
+        
+        // Mise à jour des liens actifs selon la section visible
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPosition = window.scrollY + 100;
+        
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 150) {
-                current = section.getAttribute('id');
+            const sectionHeight = section.clientHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Fade-in animations on scroll
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initialiser l'état du header
+    handleScroll();
 });
