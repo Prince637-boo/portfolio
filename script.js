@@ -131,9 +131,10 @@
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 checkScrollState();
-                updateActiveSection();
             }, CONFIG.scrollDebounceDelay);
         }, { passive: true });
+        
+        initSectionObserver();
     }
     
     function checkScrollState() {
@@ -149,23 +150,24 @@
         STATE.lastScrollTop = scrollTop;
     }
     
-    function updateActiveSection() {
-        const scrollPosition = window.scrollY + CONFIG.scrollOffset;
+    function initSectionObserver() {
+        const options = {
+            rootMargin: '-100px 0px -40% 0px'
+        };
         
-        DOM.sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // Trouver le lien correspondant
-                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-                if (activeLink && !activeLink.classList.contains('active')) {
-                    updateActiveNav(activeLink);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.getAttribute('id');
+                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (activeLink && !activeLink.classList.contains('active')) {
+                        updateActiveNav(activeLink);
+                    }
                 }
-                return;
-            }
-        });
+            });
+        }, options);
+        
+        DOM.sections.forEach(section => observer.observe(section));
     }
     
     // ===== SMOOTH SCROLL =====
