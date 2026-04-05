@@ -22,10 +22,6 @@
 </head>
 <body>
 
-    <!-- CURSOR -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
-
     <!-- GRAFFITI BACKGROUND CANVAS -->
     <canvas id="graffiti-canvas" aria-hidden="true"></canvas>
 
@@ -87,10 +83,18 @@
                 <!-- Bottom strip -->
                 <div class="hero-bottom reveal">
                     <div class="hero-socials">
-                        <a href="https://github.com/Prince637-boo"                            target="_blank" rel="noopener noreferrer" class="social-tag">GH</a>
-                        <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a"      target="_blank" rel="noopener noreferrer" class="social-tag">LI</a>
-                        <a href="mailto:I8674333@gmail.com"                                                                             class="social-tag">ML</a>
-                        <a href="https://wa.me/22893854207"                                   target="_blank" rel="noopener noreferrer" class="social-tag">WA</a>
+                        <a href="https://github.com/Prince637-boo" target="_blank" rel="noopener noreferrer" class="social-tag" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.292 9.397 7.86 10.915.575.105.785-.25.785-.556 0-.275-.01-1-.015-1.96-3.195.695-3.87-1.54-3.87-1.54-.523-1.33-1.278-1.685-1.278-1.685-1.045-.715.08-.7.08-.7 1.155.082 1.76 1.186 1.76 1.186 1.027 1.76 2.695 1.252 3.354.958.105-.744.402-1.252.73-1.54-2.55-.29-5.23-1.275-5.23-5.67 0-1.25.443-2.27 1.17-3.07-.12-.292-.51-1.465.111-3.05 0 0 .955-.305 3.13 1.17.91-.253 1.885-.38 2.855-.385.97.005 1.945.132 2.855.385 2.17-1.475 3.125-1.17 3.125-1.17.625 1.585.235 2.758.115 3.05.73.8 1.165 1.82 1.165 3.07 0 4.405-2.685 5.375-5.245 5.66.41.355.78 1.05.78 2.115 0 1.525-.015 2.755-.015 3.13 0 .31.205.67.79.555C20.71 21.395 24 17.08 24 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/issa-tchagodomou-68930337a" target="_blank" rel="noopener noreferrer" class="social-tag" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zm.02 4.5H.76v16.5h4.24V8zM9.76 8h4.07v2.2h.06c.57-1.08 1.96-2.2 4.04-2.2 4.32 0 5.12 2.84 5.12 6.54v7.96h-4.24v-7.06c0-1.68-.03-3.84-2.34-3.84-2.34 0-2.7 1.83-2.7 3.72v7.18H9.76V8z"/></svg>
+                        </a>
+                        <a href="mailto:I8674333@gmail.com" class="social-tag" aria-label="Email">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6v12h20V6H2zm18 2l-8 5-8-5V8l8 5 8-5v0zm0 10H4V9.2l8 5 8-5V18z"/></svg>
+                        </a>
+                        <a href="https://wa.me/22893854207" target="_blank" rel="noopener noreferrer" class="social-tag" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.94 14.51L2 22l5.7-1.5A9.94 9.94 0 1 0 12 2zm5.94 13.33c-.25.68-1.5 1.32-2.07 1.4-.55.08-1.2.12-5.3-1.74-4.1-1.86-6.75-6.3-6.95-6.6-.2-.3-1.67-2.2-1.67-3.99 0-1.8.95-2.7 1.28-3.08.33-.38.74-.44 1-.44.26 0 .52 0 .75 0 .24 0 .57-.08.88.62.3.7 1 2.4 1.08 2.58.08.18.14.4.02.62-.12.22-.19.4-.39.62-.2.22-.43.48-.63.72-.2.24-.42.5-.18.98.24.48 1.06 1.75 2.27 2.85 1.57 1.5 2.9 1.94 3.47 2.16.56.22.88.18 1.2-.11.3-.28.96-1.1 1.2-1.48.24-.38.5-.32.87-.19.36.12 2.3 1.08 2.69 1.28.39.2.65.3.74.46.08.16.08.9-.17 1.58z"/></svg>
+                        </a>
                     </div>
                     <div class="scroll-cue" aria-hidden="true">
                         <div class="scroll-bar"></div>
@@ -121,8 +125,16 @@
 
                 <div class="about-grid">
 
-                    <!-- Left: headline -->
+                    <!-- Left: headline & picture -->
                     <div class="about-left reveal">
+                        <div class="profile-img-wrap">
+                            <div class="profile-img-container">
+                                <img src="image/WhatsApp Image 2026-04-05 at 23.34.48(1).jpeg" alt="Issa Prince" class="profile-img">
+                                <div class="profile-overlay"></div>
+                            </div>
+                            <div class="profile-frame"></div>
+                        </div>
+
                         <h2 class="about-h2">Where<br><em>Code</em><br>Meets<br><em>Intelligence</em></h2>
                         <div class="red-rule"></div>
                     </div>
@@ -135,7 +147,7 @@
 
                         <div class="stats-strip">
                             <div class="stat reveal">
-                                <span class="stat-n">4+</span>
+                                <span class="stat-n">6+</span>
                                 <span class="stat-l">Projects</span>
                             </div>
                             <div class="stat reveal">

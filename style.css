@@ -39,11 +39,11 @@ body {
     background: var(--black);
     color: var(--white);
     overflow-x: hidden;
-    cursor: none;
+    cursor: default;
     line-height: 1.6;
 }
 
-a, button { cursor: none; }
+a, button { cursor: pointer; }
 img { max-width: 100%; height: auto; display: block; }
 ul { list-style: none; }
 
@@ -303,12 +303,16 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
 }
 .hero-socials { display: flex; gap: 12px; }
 .social-tag {
-    font-family: var(--font-mono);
-    font-size: .68rem; letter-spacing: 2px;
+    display: inline-flex; align-items: center; justify-content: center;
     color: var(--gray); text-decoration: none;
-    padding: 8px 13px;
+    padding: 10px 12px;
     border: 1px solid rgba(255,255,255,.1);
     transition: color var(--t), border-color var(--t);
+}
+.social-tag svg {
+    width: 18px; height: 18px;
+    display: block;
+    fill: currentColor;
 }
 .social-tag:hover { color: var(--red); border-color: var(--red); }
 
@@ -399,7 +403,89 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
     text-transform: uppercase;
 }
 .about-h2 em { font-style: normal; color: var(--red); }
-.red-rule { width: 80px; height: 4px; background: var(--red); margin-top: 32px; }
+.red-rule { width: 80px; height: 4px; background: var(--red); margin-top: 32px; margin-bottom: 48px; }
+
+/* === PROFILE IMAGE & THEME FILTER === */
+.profile-img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: var(--black-3);
+    margin-bottom: 20px;
+}
+
+.profile-img-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 125%; /* vertical 4:5 ratio */
+    border: 1px solid rgba(255, 26, 26, 0.2);
+}
+
+.profile-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* STREET NEURAL FILTER */
+    filter: grayscale(1) contrast(1.25) brightness(0.85);
+    transition: filter var(--t-slow), transform var(--t-slow);
+}
+
+.profile-img-wrap:hover .profile-img {
+    filter: grayscale(0) contrast(1.1) brightness(1);
+    transform: scale(1.05);
+}
+
+/* Red Neural Overlay */
+.profile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 26, 26, 0.3), transparent 70%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity var(--t);
+}
+
+.profile-img-wrap:hover .profile-overlay {
+    opacity: 0.4;
+}
+
+/* Brutalist Offset Frame */
+.profile-frame {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: -15px;
+    bottom: -15px;
+    border: 1px solid var(--red);
+    z-index: -1;
+    transition: transform var(--t) var(--ease), border-color var(--t);
+}
+
+.profile-img-wrap:hover .profile-frame {
+    transform: translate(-10px, -10px);
+    border-color: var(--white);
+}
+
+/* Digital Scanline Effect on hover */
+.profile-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 255, 0.03));
+    background-size: 100% 4px, 4px 100%;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.profile-img-wrap:hover::after {
+    opacity: 1;
+}
 
 /* Right body */
 .about-right { grid-column: 2; grid-row: 1; }
@@ -436,7 +522,7 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
 }
 .skills-label {
     font-family: var(--font-condensed);
-    font-size: .7rem; letter-spacing: 5px;
+    font-size: .95rem; letter-spacing: 5px;
     color: var(--red); margin-bottom: 40px;
 }
 .skills-grid {
