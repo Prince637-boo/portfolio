@@ -66,8 +66,13 @@ ul { list-style: none; }
     background: repeating-linear-gradient(
         180deg,
         transparent 0px, transparent 2px,
-        rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px
+        rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px
     );
+    animation: scan-move 4s linear infinite;
+}
+@keyframes scan-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 80px; }
 }
 main, header, footer { position: relative; z-index: 10; }
 
@@ -211,31 +216,36 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
     width: 100%; height: 100%;
 }
 .glitch-title::before {
-    color: var(--red);
-    animation: glitch-a 5s infinite steps(1);
+    color: #ff003c; /* Spider-verse vibrant red */
+    mix-blend-mode: screen;
+    animation: glitch-a 4s infinite steps(1);
     clip-path: inset(100% 0 0 0);
 }
 .glitch-title::after {
-    color: #00e5ff;
-    animation: glitch-b 5s infinite steps(1);
+    color: #00e5ff; /* Spider-verse cyan */
+    mix-blend-mode: screen;
+    animation: glitch-b 4.2s infinite steps(1);
     clip-path: inset(0 0 100% 0);
-    opacity: .25;
+    opacity: .6;
 }
 
 @keyframes glitch-a {
-    0%, 82%, 100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
-    84% { clip-path: inset(15% 0 55% 0); transform: translate(-5px, 2px); }
-    86% { clip-path: inset(65% 0 8%  0); transform: translate( 5px,-2px); }
-    88% { clip-path: inset(38% 0 35% 0); transform: translate(-3px, 1px); }
-    90% { clip-path: inset(75% 0 5%  0); transform: translate( 4px,-1px); }
-    92% { clip-path: inset(8%  0 75% 0); transform: translate(-4px, 2px); }
+    0%, 80%, 100% { clip-path: inset(100% 0 0 0); transform: translate(0); }
+    82% { clip-path: inset(10% 0 85% 0); transform: translate(-4px, 2px); }
+    84% { clip-path: inset(45% 0 40% 0); transform: translate(4px, -2px); }
+    86% { clip-path: inset(70% 0 5% 0); transform: translate(-2px, 1px); }
+    88% { clip-path: inset(30% 0 60% 0); transform: translate(2px, -1px); }
+    90% { clip-path: inset(5% 0 90% 0); transform: translate(-3px, 0); }
+    92% { clip-path: inset(60% 0 10% 0); transform: translate(3px, 2px); }
 }
 @keyframes glitch-b {
-    0%, 82%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-    84% { clip-path: inset(0 0 65% 0); transform: translate( 5px,-2px); }
-    86% { clip-path: inset(30% 0 40% 0); transform: translate(-5px, 2px); }
-    88% { clip-path: inset(72% 0 5%  0); transform: translate( 3px,-1px); }
-    90% { clip-path: inset(5%  0 60% 0); transform: translate(-3px, 1px); }
+    0%, 80%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+    82% { clip-path: inset(85% 0 10% 0); transform: translate(4px, -2px); }
+    84% { clip-path: inset(40% 0 45% 0); transform: translate(-4px, 2px); }
+    86% { clip-path: inset(5% 0 70% 0); transform: translate(2px, -1px); }
+    88% { clip-path: inset(60% 0 30% 0); transform: translate(-2px, 1px); }
+    90% { clip-path: inset(90% 0 5% 0); transform: translate(3px, 0); }
+    92% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, -2px); }
 }
 
 .hero-sub {
@@ -469,14 +479,17 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
     border-color: var(--white);
 }
 
-/* Digital Scanline Effect on hover */
+/* Spider-Verse Halftone / Scanline Effect on hover */
 .profile-img-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 255, 0.03));
-    background-size: 100% 4px, 4px 100%;
+    background: 
+        radial-gradient(circle, #ff0055 15%, transparent 16%),
+        radial-gradient(circle, #00e5ff 15%, transparent 16%);
+    background-size: 6px 6px;
+    background-position: 0 0, 3px 3px;
+    mix-blend-mode: color-dodge;
     pointer-events: none;
     z-index: 3;
     opacity: 0;
@@ -484,7 +497,13 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
 }
 
 .profile-img-wrap:hover::after {
-    opacity: 1;
+    opacity: 0.35;
+    animation: halftone-glitch 0.3s steps(2) infinite alternate;
+}
+
+@keyframes halftone-glitch {
+    0% { transform: translate(0, 0); background-position: 0 0, 3px 3px; }
+    100% { transform: translate(2px, -2px); background-position: 2px 1px, -1px -2px; }
 }
 
 /* Right body */
@@ -539,14 +558,25 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255,255,255,.06);
 }
-.skill-col ul { display: flex; flex-direction: column; gap: 10px; }
-.skill-col li {
-    font-family: var(--font-condensed);
-    font-size: 1.05rem; font-weight: 700;
-    letter-spacing: .5px; color: var(--white);
-    transition: color var(--t), padding-left var(--t);
+.skill-tags {
+    display: flex; flex-wrap: wrap; gap: 10px;
 }
-.skill-col li:hover { color: var(--red); padding-left: 8px; }
+.skill-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 1px; color: var(--white);
+    background: rgba(255, 26, 26, 0.05);
+    border: 1px solid rgba(255, 26, 26, 0.2);
+    padding: 6px 14px; border-radius: 4px;
+    text-transform: uppercase;
+    transition: all var(--t) var(--ease);
+}
+.skill-tag:hover {
+    color: var(--black); background: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 26, 26, 0.4);
+    border-color: var(--red);
+}
 
 /* ====================================================
    PROJECTS
@@ -726,13 +756,18 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
 }
 .c-item:hover .c-label { color: var(--red); }
 .c-val {
-    font-family: var(--font-condensed);
-    font-size: .98rem; font-weight: 600;
-    letter-spacing: .5px; color: var(--white);
+    font-family: var(--font-mono);
+    font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0px; color: var(--white);
     flex: 1;
-    transition: color var(--t);
+    transform-origin: left center;
+    transition: color 0.4s var(--ease), text-shadow 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.c-item:hover .c-val { color: var(--white); }
+.c-item:hover .c-val {
+    color: var(--white);
+    text-shadow: 2px 0 0 rgba(255, 0, 60, 0.4), -2px 0 0 rgba(0, 229, 255, 0.4);
+    transform: scale(1.03) translateX(5px);
+}
 .c-arrow {
     color: var(--gray);
     transition: color var(--t), transform var(--t);
