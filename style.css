@@ -5,10 +5,10 @@
 
 /* === TOKENS === */
 :root {
-    --red:          #ff1a1a;
-    --red-dim:      #cc0000;
-    --red-dark:     #8b0000;
-    --red-shadow:   rgba(255, 26, 26, 0.25);
+    --red:          #ff003c; /* Neon Spider-Red */
+    --red-dim:      #d60032;
+    --red-dark:     #a30026;
+    --red-shadow:   rgba(255, 0, 60, 0.4);
     --black:        #040000;
     --black-2:      #0d0000;
     --black-3:      #140000;
@@ -216,17 +216,18 @@ body.hovered .cursor-ring  { width: 52px; height: 52px; border-color: rgba(255,2
     width: 100%; height: 100%;
 }
 .glitch-title::before {
-    color: #ff003c; /* Spider-verse vibrant red */
+    color: #ff003c;
     mix-blend-mode: screen;
     animation: glitch-a 4s infinite steps(1);
     clip-path: inset(100% 0 0 0);
+    opacity: 0.9;
 }
 .glitch-title::after {
-    color: #00e5ff; /* Spider-verse cyan */
+    color: #00f2ff; /* More vibrant cyan */
     mix-blend-mode: screen;
     animation: glitch-b 4.2s infinite steps(1);
     clip-path: inset(0 0 100% 0);
-    opacity: .6;
+    opacity: 0.8;
 }
 
 @keyframes glitch-a {
